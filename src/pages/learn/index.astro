@@ -1,0 +1,265 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const techniques = [
+  {
+    slug: 'zeroshot',
+    title: 'Zero-Shot Prompting',
+    description: 'Direct instructions without examples. Works well for simple, well-defined tasks.',
+    color: 'emerald',
+    difficulty: 'Beginner'
+  },
+  {
+    slug: 'fewshot',
+    title: 'Few-Shot Prompting',
+    description: 'Provide examples to guide format and style. Perfect for consistent outputs.',
+    color: 'cyan',
+    difficulty: 'Beginner'
+  },
+  {
+    slug: 'cot',
+    title: 'Chain-of-Thought',
+    description: 'Ask for step-by-step reasoning. Essential for complex math and logic problems.',
+    color: 'violet',
+    difficulty: 'Intermediate'
+  },
+  {
+    slug: 'role',
+    title: 'Role-Based Prompting',
+    description: 'Assign a persona or expertise to shape tone and depth of response.',
+    color: 'amber',
+    difficulty: 'Beginner'
+  },
+  {
+    slug: 'xml-tags',
+    title: 'XML Tags & Delimiters',
+    description: 'Use structured formatting to separate instructions from content.',
+    color: 'blue',
+    difficulty: 'Intermediate'
+  },
+  {
+    slug: 'system-prompts',
+    title: 'System Prompts',
+    description: 'Set persistent behavior and constraints for conversations.',
+    color: 'rose',
+    difficulty: 'Intermediate'
+  },
+  {
+    slug: 'chain-prompts',
+    title: 'Prompt Chaining',
+    description: 'Break complex tasks into sequential steps for better results.',
+    color: 'teal',
+    difficulty: 'Advanced'
+  },
+  {
+    slug: 'tot',
+    title: 'Tree of Thoughts',
+    description: 'Explore multiple reasoning paths and select the best solution.',
+    color: 'purple',
+    difficulty: 'Advanced'
+  },
+  {
+    slug: 'meta',
+    title: 'Meta-Prompting',
+    description: 'Use AI to generate and improve prompts automatically.',
+    color: 'orange',
+    difficulty: 'Advanced'
+  },
+  {
+    slug: 'reflection',
+    title: 'Reflection Prompting',
+    description: 'Have AI critique and improve its own outputs.',
+    color: 'pink',
+    difficulty: 'Intermediate'
+  }
+];
+
+const useCases = [
+  {
+    title: 'Code Generation',
+    description: 'Write, debug, and explain code with AI',
+    icon: 'code',
+    href: '/learn/use-cases/code'
+  },
+  {
+    title: 'Writing & Editing',
+    description: 'Create content, edit drafts, refine style',
+    icon: 'pencil',
+    href: '/learn/use-cases/writing'
+  },
+  {
+    title: 'Data Analysis',
+    description: 'Analyze data, generate insights, create reports',
+    icon: 'chart',
+    href: '/learn/use-cases/data'
+  },
+  {
+    title: 'Research',
+    description: 'Summarize, compare, and synthesize information',
+    icon: 'book',
+    href: '/learn/use-cases/research'
+  }
+];
+---
+
+<Layout title="Learn Prompting">
+  <div class="py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="gradient-text">Learn Prompting</span>
+        </h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+          Master the techniques that transform how you communicate with AI models
+        </p>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="grid md:grid-cols-4 gap-4 mb-16">
+        <a href="#techniques" class="card-gradient rounded-xl p-4 text-center hover:border-emerald-500/50 transition-all">
+          <span class="text-emerald-400 font-semibold">Techniques</span>
+        </a>
+        <a href="#use-cases" class="card-gradient rounded-xl p-4 text-center hover:border-cyan-500/50 transition-all">
+          <span class="text-cyan-400 font-semibold">Use Cases</span>
+        </a>
+        <a href="#models" class="card-gradient rounded-xl p-4 text-center hover:border-violet-500/50 transition-all">
+          <span class="text-violet-400 font-semibold">Model Guides</span>
+        </a>
+        <a href="/playground" class="card-gradient rounded-xl p-4 text-center hover:border-amber-500/50 transition-all">
+          <span class="text-amber-400 font-semibold">Practice</span>
+        </a>
+      </div>
+
+      <!-- Techniques Section -->
+      <section id="techniques" class="mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <h2 class="text-2xl font-bold">Prompting Techniques</h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techniques.map((tech) => (
+            <a href={`/learn/techniques/${tech.slug}`} class="card-gradient rounded-xl p-6 hover:border-slate-600 transition-all group">
+              <div class={`text-${tech.color}-400 font-mono text-xs mb-2`}>
+                {tech.difficulty}
+              </div>
+              <h3 class="text-lg font-semibold mb-2 group-hover:text-white transition-colors">
+                {tech.title}
+              </h3>
+              <p class="text-slate-400 text-sm">
+                {tech.description}
+              </p>
+              <div class={`mt-4 text-${tech.color}-400 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all`}>
+                Learn more
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Use Cases Section -->
+      <section id="use-cases" class="mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <h2 class="text-2xl font-bold">Use Cases</h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {useCases.map((uc) => (
+            <a href={uc.href} class="card-gradient rounded-xl p-6 hover:border-slate-600 transition-all group">
+              <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-4 group-hover:bg-slate-700 transition-colors">
+                <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold mb-2 group-hover:text-white transition-colors">
+                {uc.title}
+              </h3>
+              <p class="text-slate-400 text-sm">
+                {uc.description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Model Guides Section -->
+      <section id="models" class="mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <h2 class="text-2xl font-bold">Model-Specific Guides</h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="/learn/models/chatgpt" class="card-gradient rounded-xl p-6 hover:border-emerald-500/50 transition-all group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                <span class="text-emerald-400 font-bold text-sm">O</span>
+              </div>
+              <h3 class="font-semibold">ChatGPT</h3>
+            </div>
+            <p class="text-slate-400 text-sm">OpenAI's conversational model best practices</p>
+          </a>
+          
+          <a href="/learn/models/claude" class="card-gradient rounded-xl p-6 hover:border-cyan-500/50 transition-all group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                <span class="text-cyan-400 font-bold text-sm">A</span>
+              </div>
+              <h3 class="font-semibold">Claude</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Anthropic's Claude prompting guidelines</p>
+          </a>
+          
+          <a href="/learn/models/gemini" class="card-gradient rounded-xl p-6 hover:border-violet-500/50 transition-all group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-violet-500/20 flex items-center justify-center">
+                <span class="text-violet-400 font-bold text-sm">G</span>
+              </div>
+              <h3 class="font-semibold">Gemini</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Google's Gemini prompting strategies</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Fundamentals Section -->
+      <section class="mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <h2 class="text-2xl font-bold">Fundamentals</h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+        
+        <div class="card-gradient rounded-2xl p-8">
+          <div class="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-3 text-emerald-400">1. Provide Context</h3>
+              <p class="text-slate-400 text-sm">
+                Give AI the background information it needs. Explain who you are, what you're working on, 
+                and what specific outcome you want. Include relevant constraints and requirements upfront.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-3 text-cyan-400">2. Be Specific</h3>
+              <p class="text-slate-400 text-sm">
+                Vague prompts produce vague results. Specify format, length, tone, and constraints. 
+                The more precise you are, the better the AI can deliver exactly what you need.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-3 text-violet-400">3. Iterate & Refine</h3>
+              <p class="text-slate-400 text-sm">
+                First attempts are starting points. Build on good responses, clarify ambiguities, 
+                and refine based on output. Prompting is a conversation, not a one-shot command.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

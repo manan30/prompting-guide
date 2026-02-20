@@ -1,0 +1,147 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Role-Based Prompting">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Role-Based</span>
+      </nav>
+
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm mb-4">
+          Beginner Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Role-Based Prompting</h1>
+        <p class="text-xl text-slate-400">
+          Assign a persona or expertise to shape the tone, depth, and perspective of responses
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Role-Based Prompting?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Role-based prompting asks the AI to assume a specific persona, profession, or character. 
+              This dramatically influences how it responds - the vocabulary, depth, tone, and perspective all shift to match the role.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Expert Persona</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-2 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+You are an experienced financial advisor with 20 years of experience helping retirees. 
+Explain compound interest to a client who just turned 65.
+                  </div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output Style</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300 text-sm">
+                    <p>Would use careful, conservative language with emphasis on safety. Would mention:</p>
+                    <ul class="list-disc pl-4 mt-2 space-y-1">
+                      <li>Risk-averse strategies</li>
+                      <li>Practical examples relevant to retirement</li>
+                      <li>Clear, jargon-free explanations</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Creative Persona</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-2 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+You are a humorist writer known for witty observations about everyday life. 
+Write a short paragraph about waiting in line.
+                  </div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output Style</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300 text-sm">
+                    <p>Would include:</p>
+                    <ul class="list-disc pl-4 mt-2 space-y-1">
+                      <li>Humorous observations</li>
+                      <li>Relatable details</li>
+                      <li>Playful word choices</li>
+                      <li>Light, entertaining tone</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Common Role Templates</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <div class="grid md:grid-cols-2 gap-4 font-mono text-sm">
+              <div class="bg-slate-800/50 rounded-lg p-3">You are a [profession]...</div>
+              <div class="bg-slate-800/50 rounded-lg p-3">Act as a [expert]...</div>
+              <div class="bg-slate-800/50 rounded-lg p-3">You have the expertise of [field]...</div>
+              <div class="bg-slate-800/50 rounded-lg p-3">Pretend you're [character]...</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Tips for Effective Roles</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Be specific about expertise level</strong>
+                  <p class="text-slate-400 text-sm">"Expert cardiologist" vs "Medical student" gives very different results</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Include background details</strong>
+                  <p class="text-slate-400 text-sm">Years of experience, notable achievements, or specific viewpoint</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Specify communication style</strong>
+                  <p class="text-slate-400 text-sm">Add how the role should speak - technical, casual, formal, etc.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/cot" class="text-slate-400 hover:text-white transition-colors">
+            ← Chain-of-Thought
+          </a>
+          <a href="/learn/techniques/xml-tags" class="px-6 py-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 hover:bg-amber-500/20 transition-colors">
+            Next: XML Tags →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

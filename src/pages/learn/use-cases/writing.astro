@@ -1,0 +1,184 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Writing & Editing">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Use Cases</span>
+        <span>/</span>
+        <span class="text-white">Writing & Editing</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-4">
+          Use Case
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Writing & Editing</h1>
+        <p class="text-xl text-slate-400">
+          Create content, edit drafts, and refine your writing style
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              AI is a powerful writing assistant that can help with everything from brainstorming ideas 
+              to polishing final drafts. It can adapt to different tones, styles, and audiences.
+            </p>
+            <p class="text-slate-400">
+              The quality of AI-assisted writing depends on how well you describe your audience, 
+              desired tone, and specific requirements.
+            </p>
+          </div>
+        </section>
+
+        <!-- Key Techniques -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Key Techniques</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Role-Based</h3>
+              <p class="text-slate-400 text-sm">Specify the writer persona - journalist, copywriter, academic</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Few-Shot</h3>
+              <p class="text-slate-400 text-sm">Show examples of your desired style and voice</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-pink-400">Reflection</h3>
+              <p class="text-slate-400 text-sm">Have AI critique and improve its own drafts</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-blue-400">XML Tags</h3>
+              <p class="text-slate-400 text-sm">Separate content type, audience, and constraints</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Blog Post</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Write a blog post about the benefits of remote work.
+- Tone: Professional but friendly
+- Length: 800 words
+- Audience: Startup founders
+- Include 3 subheadings
+- End with actionable takeaways</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>The Future of Work: Why Remote Teams Win</strong>
+                    <br/><br/>
+                    [800-word blog post with professional yet friendly tone,
+                    three subheadings covering productivity, talent access, 
+                    and work-life balance, ending with 5 actionable takeaways]
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Editing</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Edit this email to be more concise and action-oriented:
+
+"Hey, I just wanted to follow up on our conversation from 
+last week about the project timeline. I know we discussed 
+some things but I'm not sure if we actually made any 
+decisions. Let me know what you think we should do 
+about the deadline stuff when you have a chance."</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Revised:</strong>
+                    <br/><br/>
+                    "Hi [Name],
+                    <br/><br/>
+                    Following up on our discussion about the project timeline. 
+                    Can we confirm the deadline decisions by Friday?
+                    <br/><br/>
+                    Thanks"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Define your audience</strong>
+                  <p class="text-slate-400 text-sm">Tell AI who you're writing for - experts, beginners, executives</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Specify tone explicitly</strong>
+                  <p class="text-slate-400 text-sm">Say "professional," "conversational," or "humorous"</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Iterate with feedback</strong>
+                  <p class="text-slate-400 text-sm">Refine drafts by asking for specific improvements</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Keep your voice</strong>
+                  <p class="text-slate-400 text-sm">Provide samples of your writing style for better results</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/use-cases/code" class="text-slate-400 hover:text-white transition-colors">
+            ← Previous: Code Generation
+          </a>
+          <a href="/learn/use-cases/data" class="px-6 py-3 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 hover:bg-violet-500/20 transition-colors">
+            Next: Data Analysis →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

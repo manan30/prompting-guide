@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Exercises">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="gradient-text">Practice Exercises</span>
+        </h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+          Strengthen your prompting skills with hands-on challenges
+        </p>
+      </div>
+
+      <!-- Exercise Categories -->
+      <div class="space-y-8">
+        <!-- Beginner -->
+        <section>
+          <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">1</span>
+            Beginner Challenges
+          </h2>
+          <div class="space-y-4">
+            <div class="card-gradient rounded-xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold mb-2">Zero-Shot Summarization</h3>
+                  <p class="text-slate-400 text-sm mb-3">
+                    Write a prompt to summarize any news article in exactly 3 bullet points.
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Zero-Shot</span>
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Writing</span>
+                  </div>
+                </div>
+                <a href="/playground" class="px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm hover:bg-emerald-500/20 transition-colors">
+                  Try It
+                </a>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold mb-2">Role-Based Explanation</h3>
+                  <p class="text-slate-400 text-sm mb-3">
+                    Create a prompt that explains blockchain to a 10-year-old. Use a teaching persona.
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Role-Based</span>
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Education</span>
+                  </div>
+                </div>
+                <a href="/playground" class="px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm hover:bg-emerald-500/20 transition-colors">
+                  Try It
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Intermediate -->
+        <section>
+          <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-sm">2</span>
+            Intermediate Challenges
+          </h2>
+          <div class="space-y-4">
+            <div class="card-gradient rounded-xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold mb-2">Few-Shot Classification</h3>
+                  <p class="text-slate-400 text-sm mb-3">
+                    Build a prompt that classifies customer reviews as positive, negative, or neutral using 2 examples of each.
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Few-Shot</span>
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Classification</span>
+                  </div>
+                </div>
+                <a href="/playground" class="px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm hover:bg-cyan-500/20 transition-colors">
+                  Try It
+                </a>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold mb-2">Chain-of-Thought Math</h3>
+                  <p class="text-slate-400 text-sm mb-3">
+                    Write a prompt that solves this problem step-by-step: "A train travels 60 mph for 2 hours, then 80 mph for 1 hour. What's the average speed?"
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">CoT</span>
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Math</span>
+                  </div>
+                </div>
+                <a href="/playground" class="px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm hover:bg-cyan-500/20 transition-colors">
+                  Try It
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Advanced -->
+        <section>
+          <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-400 font-bold text-sm">3</span>
+            Advanced Challenges
+          </h2>
+          <div class="space-y-4">
+            <div class="card-gradient rounded-xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold mb-2">Code Review Agent</h3>
+                  <p class="text-slate-400 text-sm mb-3">
+                    Create a system prompt that acts as a senior code reviewer. Include specific criteria for what to check and how to present feedback.
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">System Prompt</span>
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Code</span>
+                  </div>
+                </div>
+                <a href="/playground" class="px-4 py-2 rounded-lg bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm hover:bg-violet-500/20 transition-colors">
+                  Try It
+                </a>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold mb-2">Prompt Chaining</h3>
+                  <p class="text-slate-400 text-sm mb-3">
+                    Design a two-step prompt: first summarize an article, then translate the summary to Spanish.
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Chaining</span>
+                    <span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-500">Multi-step</span>
+                  </div>
+                </div>
+                <a href="/playground" class="px-4 py-2 rounded-lg bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm hover:bg-violet-500/20 transition-colors">
+                  Try It
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Self-Assessment -->
+      <div class="mt-12 card-gradient rounded-xl p-6">
+        <h2 class="text-xl font-semibold mb-4">Self-Assessment Checklist</h2>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <label class="flex items-center gap-3 text-slate-300">
+            <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-600" />
+            <span>Can write effective zero-shot prompts</span>
+          </label>
+          <label class="flex items-center gap-3 text-slate-300">
+            <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-600" />
+            <span>Can use few-shot for format control</span>
+          </label>
+          <label class="flex items-center gap-3 text-slate-300">
+            <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-600" />
+            <span>Can apply chain-of-thought for reasoning</span>
+          </label>
+          <label class="flex items-center gap-3 text-slate-300">
+            <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-600" />
+            <span>Can assign roles effectively</span>
+          </label>
+          <label class="flex items-center gap-3 text-slate-300">
+            <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-600" />
+            <span>Can use XML delimiters for structure</span>
+          </label>
+          <label class="flex items-center gap-3 text-slate-300">
+            <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-600" />
+            <span>Can build prompt chains</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

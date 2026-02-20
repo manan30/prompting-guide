@@ -1,0 +1,215 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TechniqueNav from '../../../components/TechniqueNav.astro';
+---
+
+<Layout title="Meta-Prompting">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-4">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Meta-Prompting</span>
+      </nav>
+
+      <!-- Technique Navigation -->
+      <TechniqueNav currentSlug="meta" />
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm mb-4">
+          Advanced Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Meta-Prompting</h1>
+        <p class="text-xl text-slate-400">
+          Use AI to generate, improve, and iterate on prompts automatically
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Meta-Prompting?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Meta-prompting involves using AI to help design, critique, or improve prompts. 
+              Instead of writing prompts manually, you create prompts about prompts - asking the AI 
+              to analyze, generate, or refine prompting instructions.
+            </p>
+            <p class="text-slate-400">
+              It's "prompting the prompter" - treating prompt engineering itself as a task 
+              the AI can assist with.
+            </p>
+          </div>
+        </section>
+
+        <!-- When to use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use It</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-orange-400">Best For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Optimizing existing prompts</li>
+                <li>• Generating prompts for new tasks</li>
+                <li>• Finding edge cases</li>
+                <li>• Building prompt libraries</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Not Ideal For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Simple, one-off tasks</li>
+                <li>• When you already have good prompts</li>
+                <li>• Time-critical situations</li>
+                <li>• Highly specialized domains</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Prompt Improvement</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Meta-Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Analyze this prompt and suggest improvements:
+
+"Write about leadership"
+
+For each suggestion, explain:
+1. The specific weakness
+2. Why the improvement helps
+3. The revised prompt</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Weakness 1:</strong> Too vague
+                    <br/><strong>Fix:</strong> Specify format, audience, length
+                    <br/><strong>Revision:</strong> "Write a 500-word blog post about 
+                    effective leadership for first-time managers..."
+                    <br/><br/>
+                    <strong>Weakness 2:</strong> No context
+                    <br/><strong>Fix:</strong> Add background info
+                    <br/><strong>Revision:</strong> Include specific leadership challenges...
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Prompt Generation</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Meta-Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Generate 5 different prompts for summarizing long articles.
+Each prompt should use a different technique:
+- One with XML tags
+- One with role-playing
+- One with chain-of-thought
+- One with constraints
+- One with examples</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>1. XML Tags:</strong>
+                    <br/>&lt;task&gt;Summarize&lt;/task&gt; &lt;input&gt;[article]&lt;/input&gt;
+                    <br/><br/>
+                    <strong>2. Role-Playing:</strong>
+                    <br/>"You are a journalist. Summarize this for a news brief..."
+                    <br/><br/>
+                    <strong>3. Chain-of-Thought:</strong>
+                    <br/>"First identify key points, then synthesize them..."
+                    <br/><br/>
+                    [3 more variations...]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-orange-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Be specific about what you want</strong>
+                  <p class="text-slate-400 text-sm">Tell the AI what aspect of the prompt to focus on</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-orange-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Iterate on results</strong>
+                  <p class="text-slate-400 text-sm">Meta-prompting often takes multiple rounds to get right</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-orange-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Provide good examples</strong>
+                  <p class="text-slate-400 text-sm">Show the AI what high-quality prompts look like</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-orange-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Test generated prompts</strong>
+                  <p class="text-slate-400 text-sm">Always validate AI-suggested prompts with actual use</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Meta-Prompting vs Manual</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Meta-prompting isn't about replacing human prompt engineers - it's about augmenting them. 
+              Use it to brainstorm, find blind spots, and generate variations. The human then selects 
+              and refines the best results.
+            </p>
+            <div class="mt-4">
+              <a href="/learn/techniques/reflection" class="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors">
+                Learn Reflection Prompting →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/tot" class="px-6 py-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 hover:bg-purple-500/20 transition-colors">
+            ← Previous: Tree of Thoughts
+          </a>
+          <a href="/learn/techniques/reflection" class="px-6 py-3 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 hover:bg-pink-500/20 transition-colors">
+            Next: Reflection Prompting →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

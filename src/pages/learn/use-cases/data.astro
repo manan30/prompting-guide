@@ -1,0 +1,203 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Data Analysis">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Use Cases</span>
+        <span>/</span>
+        <span class="text-white">Data Analysis</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm mb-4">
+          Use Case
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Data Analysis</h1>
+        <p class="text-xl text-slate-400">
+          Analyze data, generate insights, and create reports
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              AI can help analyze datasets, identify patterns, and generate insights. It works well 
+              with structured data, spreadsheets, and even raw text that needs quantification.
+            </p>
+            <p class="text-slate-400">
+              Provide clear context about your data structure and what insights you're looking for 
+              to get the most useful results.
+            </p>
+          </div>
+        </section>
+
+        <!-- Key Techniques -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Key Techniques</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-violet-400">Chain-of-Thought</h3>
+              <p class="text-slate-400 text-sm">Request step-by-step analysis for complex datasets</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Few-Shot</h3>
+              <p class="text-slate-400 text-sm">Show desired output format for consistent analysis</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-blue-400">XML Tags</h3>
+              <p class="text-slate-400 text-sm">Separate data, questions, and output format</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-teal-400">Prompt Chaining</h3>
+              <p class="text-slate-400 text-sm">Break analysis into clean → analyze → report pipeline</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Trend Analysis</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Analyze this sales data and identify:
+- Month-over-month growth trends
+- Top 3 performing products
+- Any seasonal patterns
+
+Data: [sales data table]
+Output format: Summary with bullet points and one chart recommendation</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Key Findings:</strong>
+                    <br/>• 23% MoM growth (accelerating)
+                    <br/>• Top products: Widget Pro, SuperTool, BasicKit
+                    <br/>• Q4 shows 40% higher sales (holiday season)
+                    <br/><br/>
+                    <strong>Chart Recommendation:</strong> Line chart for trends, bar chart for product comparison
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Customer Feedback Analysis</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Categorize these customer reviews by sentiment and topic:
+
+1. "Love the product but shipping was terrible"
+2. "Best purchase I've made this year"
+3. "Good value but needs better instructions"
+4. "Customer service was incredibly helpful"
+
+Create a table with: Review, Sentiment, Topics, Action Item</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <table class="w-full text-sm">
+                      <thead>
+                        <tr class="text-left text-slate-400">
+                          <th class="pb-2">Review</th>
+                          <th class="pb-2">Sentiment</th>
+                          <th class="pb-2">Topics</th>
+                          <th class="pb-2">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td class="text-amber-400">Mixed</td>
+                          <td>Product, Shipping</td>
+                          <td>Improve shipping</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td class="text-emerald-400">Positive</td>
+                          <td>Overall</td>
+                          <td>Use in testimonials</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Structure your data clearly</strong>
+                  <p class="text-slate-400 text-sm">Use tables, CSV format, or clear delimiters</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Ask specific questions</strong>
+                  <p class="text-slate-400 text-sm">Instead of "analyze this," ask "what trends do you see?"</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Request specific output formats</strong>
+                  <p class="text-slate-400 text-sm">Tables, bullet points, charts - specify what you need</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Verify critical findings</strong>
+                  <p class="text-slate-400 text-sm">Double-check important insights with follow-up questions</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/use-cases/writing" class="text-slate-400 hover:text-white transition-colors">
+            ← Previous: Writing & Editing
+          </a>
+          <a href="/learn/use-cases/research" class="px-6 py-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 hover:bg-amber-500/20 transition-colors">
+            Next: Research →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

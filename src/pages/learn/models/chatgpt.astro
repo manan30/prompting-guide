@@ -1,0 +1,158 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="ChatGPT Guide">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Model Guides</span>
+        <span>/</span>
+        <span class="text-white">ChatGPT</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm mb-4">
+          Model Guide
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">ChatGPT</h1>
+        <p class="text-xl text-slate-400">
+          OpenAI's conversational AI - best practices and techniques
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              ChatGPT is OpenAI's flagship conversational AI model. It excels at following instructions, 
+              engaging in dialogue, and producing human-like text. The latest versions (GPT-4) have 
+              strong reasoning capabilities and can use tools.
+            </p>
+            <p class="text-slate-400">
+              Available via chat.openai.com and API. GPT-4 offers the best performance but with 
+              higher latency and rate limits.
+            </p>
+          </div>
+        </section>
+
+        <!-- Strengths -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Strengths</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-emerald-400">Instruction Following</h3>
+              <p class="text-slate-400 text-sm">Excellent at following complex, multi-part instructions precisely</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Code Generation</h3>
+              <p class="text-slate-400 text-sm">Strong coder with good understanding of best practices</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-violet-400">Conversation</h3>
+              <p class="text-slate-400 text-sm">Natural dialogue and can maintain context well</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Tool Use</h3>
+              <p class="text-slate-400 text-sm">Can use plugins, browse web, and execute code</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">ChatGPT-Specific Tips</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Use clear structure</strong>
+                  <p class="text-slate-400 text-sm">Number your requirements or use bullet points for complex prompts</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Leverage system messages</strong>
+                  <p class="text-slate-400 text-sm">Set persistent context via system prompts for recurring tasks</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Iterate conversationally</strong>
+                  <p class="text-slate-400 text-sm">Build on responses with follow-up questions rather than re-prompting</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Use delimiters</strong>
+                  <p class="text-slate-400 text-sm">Use XML tags or markdown code blocks to separate content</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Example Prompt -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Example Prompt</h2>
+          <div class="card-gradient rounded-xl overflow-hidden">
+            <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+              <span class="text-sm text-slate-400">Effective ChatGPT Prompt</span>
+            </div>
+            <div class="p-6">
+              <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm mb-4">
+You are a senior software architect reviewing a pull request.
+
+Context:
+- This PR adds user authentication to the existing API
+- The codebase uses Python/FastAPI
+- Current tests have 85% coverage
+
+Task:
+1. Review the code for security issues
+2. Check for proper error handling
+3. Suggest any performance improvements
+4. Verify test coverage is adequate
+
+Provide your review in this format:
+## Security Issues
+[Bullet points]
+
+## Suggestions
+[Bullet points]
+
+## Overall Verdict
+[Approve/Request Changes]
+              </div>
+              <p class="text-slate-400 text-sm">
+                This prompt works well because it establishes a clear role, provides relevant context, 
+                lists specific tasks, and specifies the output format.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn" class="text-slate-400 hover:text-white transition-colors">
+            ← Back to Learn
+          </a>
+          <a href="/learn/models/claude" class="px-6 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 transition-colors">
+            Next: Claude →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

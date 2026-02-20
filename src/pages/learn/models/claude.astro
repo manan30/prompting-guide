@@ -1,0 +1,149 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Claude Guide">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Model Guides</span>
+        <span>/</span>
+        <span class="text-white">Claude</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-4">
+          Model Guide
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Claude</h1>
+        <p class="text-xl text-slate-400">
+          Anthropic's Claude - best practices and techniques
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Claude is Anthropic's AI assistant known for its thoughtful, nuanced responses and 
+              strong ethical guidelines. It excels at long-form analysis, writing, and complex 
+              reasoning. Claude 3 (Opus, Sonnet, Haiku) offers various capability/performance trade-offs.
+            </p>
+            <p class="text-slate-400">
+              Claude is particularly known for being willing to push back on harmful requests while 
+              still being helpful. It has large context windows (up to 200K tokens).
+            </p>
+          </div>
+        </section>
+
+        <!-- Strengths -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Strengths</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Long Context</h3>
+              <p class="text-slate-400 text-sm">Excellent at processing and referencing long documents</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-violet-400">Nuanced Analysis</h3>
+              <p class="text-slate-400 text-sm">Strong at considering multiple perspectives and edge cases</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-emerald-400">Writing Quality</h3>
+              <p class="text-slate-400 text-sm">Produces polished, well-structured prose</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Coding</h3>
+              <p class="text-slate-400 text-sm">Strong code generation with good error handling</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Claude-Specific Tips</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Be explicit about format</strong>
+                  <p class="text-slate-400 text-sm">Claude responds well to structured output requests</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Use "think step by step"</strong>
+                  <p class="text-slate-400 text-sm">For complex reasoning, explicitly request chain-of-thought</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Provide constraints</strong>
+                  <p class="text-slate-400 text-sm">Clear boundaries help Claude stay focused and appropriate</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Leverage large context</strong>
+                  <p class="text-slate-400 text-sm">Paste relevant documents directly - Claude can analyze them thoroughly</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Example Prompt -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Example Prompt</h2>
+          <div class="card-gradient rounded-xl overflow-hidden">
+            <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+              <span class="text-sm text-slate-400">Effective Claude Prompt</span>
+            </div>
+            <div class="p-6">
+              <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm mb-4">
+Analyze the following research paper and provide:
+
+1. A 3-sentence summary
+2. Key findings (bullet points)
+3. Methodology assessment
+4. Potential limitations
+
+Think step by step through your analysis.
+
+[Paper text pasted here - up to 50 pages]
+
+Format your response using markdown headers.
+              </div>
+              <p class="text-slate-400 text-sm">
+                This works well because it provides a clear analytical framework, explicitly requests 
+                step-by-step reasoning, and specifies the output format. Claude's large context window 
+                makes it ideal for analyzing long documents.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/models/chatgpt" class="text-slate-400 hover:text-white transition-colors">
+            ← Previous: ChatGPT
+          </a>
+          <a href="/learn/models/gemini" class="px-6 py-3 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 hover:bg-violet-500/20 transition-colors">
+            Next: Gemini →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

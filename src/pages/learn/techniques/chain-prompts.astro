@@ -1,0 +1,202 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Prompt Chaining">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Prompt Chaining</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm mb-4">
+          Advanced Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Prompt Chaining</h1>
+        <p class="text-xl text-slate-400">
+          Break complex tasks into sequential steps where each prompt builds on the previous output
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Prompt Chaining?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Prompt chaining (also called prompt chaining) involves breaking a complex task into 
+              a series of smaller, interconnected prompts. Each step uses the output from the previous 
+              step as input, creating a chain of reasoning or processing.
+            </p>
+            <p class="text-slate-400">
+              This technique mimics how humans approach complex problems - by breaking them into 
+              manageable steps and building toward a final solution.
+            </p>
+          </div>
+        </section>
+
+        <!-- When to use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use It</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-teal-400">Best For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Multi-stage workflows</li>
+                <li>• Content pipelines</li>
+                <li>• Data processing tasks</li>
+                <li>• Complex analysis</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Not Ideal For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Simple, single-step tasks</li>
+                <li>• Quick answers</li>
+                <li>• When order doesn't matter</li>
+                <li>• Limited context windows</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Blog Post Generation</span>
+              </div>
+              <div class="p-6">
+                <p class="text-slate-400 text-sm mb-4">Chain of 3 prompts:</p>
+                <div class="space-y-4">
+                  <div>
+                    <span class="text-xs uppercase text-teal-400 mb-1 block font-mono">Step 1: Outline</span>
+                    <div class="bg-slate-800/50 rounded-lg p-3 text-sm">
+                      Create an outline for a blog post about [topic]
+                    </div>
+                  </div>
+                  <div class="border-l-2 border-teal-500/30 pl-4">
+                    <span class="text-xs uppercase text-teal-400 mb-1 block font-mono">Step 2: Draft</span>
+                    <div class="bg-slate-800/50 rounded-lg p-3 text-sm">
+                      Using this outline, write a full blog post
+                    </div>
+                  </div>
+                  <div class="border-l-2 border-teal-500/30 pl-4">
+                    <span class="text-xs uppercase text-teal-400 mb-1 block font-mono">Step 3: Polish</span>
+                    <div class="bg-slate-800/50 rounded-lg p-3 text-sm">
+                      Improve the draft for engagement and SEO
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Data Analysis Pipeline</span>
+              </div>
+              <div class="p-6">
+                <p class="text-slate-400 text-sm mb-4">Chain of 3 prompts:</p>
+                <div class="space-y-4">
+                  <div>
+                    <span class="text-xs uppercase text-teal-400 mb-1 block font-mono">Step 1: Clean</span>
+                    <div class="bg-slate-800/50 rounded-lg p-3 text-sm">
+                      Clean this raw data and identify anomalies
+                    </div>
+                  </div>
+                  <div class="border-l-2 border-teal-500/30 pl-4">
+                    <span class="text-xs uppercase text-teal-400 mb-1 block font-mono">Step 2: Analyze</span>
+                    <div class="bg-slate-800/50 rounded-lg p-3 text-sm">
+                      Based on the cleaned data, calculate key metrics
+                    </div>
+                  </div>
+                  <div class="border-l-2 border-teal-500/30 pl-4">
+                    <span class="text-xs uppercase text-teal-400 mb-1 block font-mono">Step 3: Report</span>
+                    <div class="bg-slate-800/50 rounded-lg p-3 text-sm">
+                      Create a summary report with visualizations
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-teal-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Design clear output formats</strong>
+                  <p class="text-slate-400 text-sm">Each step should output structured data the next step can use</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-teal-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Include all necessary context</strong>
+                  <p class="text-slate-400 text-sm">Pass forward relevant information from previous steps</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-teal-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Handle errors at each step</strong>
+                  <p class="text-slate-400 text-sm">Add validation to catch issues before they propagate</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-teal-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Test the full chain</strong>
+                  <p class="text-slate-400 text-sm">Problems often appear at step boundaries, not in individual prompts</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Chaining vs Single Prompt</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              While a single complex prompt can sometimes work, chaining provides better control, 
+              easier debugging, and often higher quality results. Each step can be optimized 
+              independently, and you can inspect intermediate outputs.
+            </p>
+            <div class="mt-4">
+              <a href="/learn/techniques/tot" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
+                Learn Tree of Thoughts →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/system-prompts" class="px-6 py-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 hover:bg-rose-500/20 transition-colors">
+            ← Previous: System Prompts
+          </a>
+          <a href="/learn/techniques/tot" class="px-6 py-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 hover:bg-purple-500/20 transition-colors">
+            Next: Tree of Thoughts →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

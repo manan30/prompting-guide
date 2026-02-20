@@ -1,0 +1,45 @@
+---
+interface Props {
+  currentSlug: string;
+}
+
+const techniques = [
+  { slug: 'zeroshot', title: 'Zero-Shot', color: 'emerald' },
+  { slug: 'fewshot', title: 'Few-Shot', color: 'cyan' },
+  { slug: 'cot', title: 'Chain-of-Thought', color: 'violet' },
+  { slug: 'role', title: 'Role-Based', color: 'amber' },
+  { slug: 'xml-tags', title: 'XML Tags', color: 'blue' },
+  { slug: 'system-prompts', title: 'System Prompts', color: 'rose' },
+  { slug: 'chain-prompts', title: 'Prompt Chaining', color: 'teal' },
+  { slug: 'tot', title: 'Tree of Thoughts', color: 'purple' },
+  { slug: 'meta', title: 'Meta-Prompting', color: 'orange' },
+  { slug: 'reflection', title: 'Reflection', color: 'pink' },
+];
+
+const { currentSlug } = Astro.props;
+---
+
+<nav class="hidden lg:block w-64 shrink-0">
+  <div class="sticky top-24">
+    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
+      Techniques
+    </h3>
+    <ul class="space-y-1">
+      {techniques.map((tech) => (
+        <li>
+          <a
+            href={`/learn/techniques/${tech.slug}`}
+            class:list={[
+              'block px-3 py-2 rounded-lg text-sm transition-all',
+              currentSlug === tech.slug
+                ? `bg-${tech.color}-500/10 text-${tech.color}-400 border-l-2 border-${tech.color}-500`
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            ]}
+          >
+            {tech.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

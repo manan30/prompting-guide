@@ -1,0 +1,200 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Code Generation">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Use Cases</span>
+        <span>/</span>
+        <span class="text-white">Code Generation</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm mb-4">
+          Use Case
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Code Generation</h1>
+        <p class="text-xl text-slate-400">
+          Write, debug, and explain code with AI assistance
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              AI models excel at generating code across multiple languages. From writing functions from scratch 
+              to debugging existing code, AI can significantly speed up your development workflow.
+            </p>
+            <p class="text-slate-400">
+              The key is providing clear context about your requirements, including the programming language, 
+              expected behavior, and any constraints.
+            </p>
+          </div>
+        </section>
+
+        <!-- Key Techniques -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Key Techniques</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-emerald-400">Role-Based</h3>
+              <p class="text-slate-400 text-sm">Assign a persona like "senior developer" or "security expert" for specialized code</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Few-Shot</h3>
+              <p class="text-slate-400 text-sm">Provide input-output examples to match your expected format</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-violet-400">Chain-of-Thought</h3>
+              <p class="text-slate-400 text-sm">Ask for step-by-step reasoning in complex algorithms</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-blue-400">XML Tags</h3>
+              <p class="text-slate-400 text-sm">Separate requirements, constraints, and test cases clearly</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Function Generation</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Write a Python function that calculates the Fibonacci sequence up to n numbers. Include:
+- Type hints
+- Docstring
+- Error handling for invalid input</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300 font-mono text-sm">
+def fibonacci(n: int) -> list[int]:
+    """Generate Fibonacci sequence up to n numbers.
+    
+    Args:
+        n: Number of Fibonacci numbers to generate
+    
+    Returns:
+        List of Fibonacci numbers
+    
+    Raises:
+        ValueError: If n is negative
+    """
+    if n {'<'} 0:
+        raise ValueError("n must be non-negative")
+    if n == 0:
+        return []
+    if n == 1:
+        return [0]
+    
+    sequence = [0, 1]
+    while len(sequence) {'<'} n:
+        sequence.append(sequence[-1] + sequence[-2])
+    return sequence[:n]</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Debugging</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Debug this JavaScript function. It should find the index of a target value in a sorted array but returns -1 incorrectly:
+
+function findIndex(arr, target) {'{'}
+  for (let i = 0; i {'<'} arr.length; i++) {'{'}
+    if (arr[i] == target) {'{'}
+      return i;
+    {'}'}
+  {'}'}
+  return arr.length;
+{'}'}</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Bug Found:</strong> Line 8 returns <code>arr.length</code> instead of <code>-1</code>
+                    <br/><br/>
+                    <strong>Fix:</strong>
+                    <br/><code class="text-emerald-400">return -1;</code>
+                    <br/><br/>
+                    <strong>Explanation:</strong> When the target isn't found, the function should return -1 (standard convention), not the array length.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Specify the language and version</strong>
+                  <p class="text-slate-400 text-sm">Python 3.10+ vs Python 3.8 may use different features</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Include test cases</strong>
+                  <p class="text-slate-400 text-sm">Show expected inputs and outputs to validate behavior</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Ask for explanations</strong>
+                  <p class="text-slate-400 text-sm">Request the AI to explain complex code it generates</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Iterate and refine</strong>
+                  <p class="text-slate-400 text-sm">Build on generated code with follow-up prompts</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn" class="text-slate-400 hover:text-white transition-colors">
+            ← Back to Learn
+          </a>
+          <a href="/learn/use-cases/writing" class="px-6 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 transition-colors">
+            Next: Writing & Editing →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

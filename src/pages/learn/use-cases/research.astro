@@ -1,0 +1,209 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Research">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Use Cases</span>
+        <span>/</span>
+        <span class="text-white">Research</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm mb-4">
+          Use Case
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Research</h1>
+        <p class="text-xl text-slate-400">
+          Summarize, compare, and synthesize information
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              AI excels at summarizing long documents, comparing multiple sources, and synthesizing 
+              complex information into digestible insights. It's like having a research assistant 
+              that can read and organize information instantly.
+            </p>
+            <p class="text-slate-400">
+              For best results, provide clear instructions about what aspects to focus on and 
+              how to present the findings.
+            </p>
+          </div>
+        </section>
+
+        <!-- Key Techniques -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Key Techniques</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Chain-of-Thought</h3>
+              <p class="text-slate-400 text-sm">Request step-by-step reasoning through complex topics</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Few-Shot</h3>
+              <p class="text-slate-400 text-sm">Show desired summary format from examples</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-blue-400">XML Tags</h3>
+              <p class="text-slate-400 text-sm">Separate source material from analysis questions</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-pink-400">Tree of Thoughts</h3>
+              <p class="text-slate-400 text-sm">Explore multiple angles and compare conclusions</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Article Summary</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Summarize this article in 5 bullet points:
+- Focus on the main arguments
+- Include any statistics or key data
+- Note the author's main conclusion
+
+[Article text]</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    • Main argument: Remote work increases productivity by 13%
+                    <br/>• Key statistic: 2.4 days/week is optimal
+                    <br/>• Study: Stanford research with 500 participants
+                    <br/>• Counterpoint: Collaboration suffers without in-person time
+                    <br/>• Conclusion: Hybrid model recommended
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Comparison</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Compare these three articles about AI ethics.
+For each, identify:
+- Main ethical concern raised
+- Proposed solution (if any)
+- Strength of argument (1-5)
+
+Article A: [text]
+Article B: [text]
+Article C: [text]</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <table class="w-full text-sm">
+                      <thead>
+                        <tr class="text-left text-slate-400">
+                          <th class="pb-2">Article</th>
+                          <th class="pb-2">Concern</th>
+                          <th class="pb-2">Solution</th>
+                          <th class="pb-2">Strength</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>A</td>
+                          <td>Bias in training</td>
+                          <td>Diverse datasets</td>
+                          <td>4/5</td>
+                        </tr>
+                        <tr>
+                          <td>B</td>
+                          <td>Job displacement</td>
+                          <td>Universal basic income</td>
+                          <td>3/5</td>
+                        </tr>
+                        <tr>
+                          <td>C</td>
+                          <td>Privacy concerns</td>
+                          <td>Data regulations</td>
+                          <td>5/5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Provide specific focus areas</strong>
+                  <p class="text-slate-400 text-sm">Tell AI what aspects to prioritize in the summary</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Request source attribution</strong>
+                  <p class="text-slate-400 text-sm">Ask for citations when combining multiple sources</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Use comparative frameworks</strong>
+                  <p class="text-slate-400 text-sm">Ask for side-by-side comparisons when analyzing options</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-amber-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Verify factual claims</strong>
+                  <p class="text-slate-400 text-sm">Cross-reference important statistics with reliable sources</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/use-cases/data" class="text-slate-400 hover:text-white transition-colors">
+            ← Previous: Data Analysis
+          </a>
+          <a href="/learn" class="px-6 py-3 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-400 hover:bg-slate-500/20 transition-colors">
+            Back to Learn Hub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

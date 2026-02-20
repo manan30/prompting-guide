@@ -1,0 +1,194 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Few-Shot Prompting">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Few-Shot</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-4">
+          Beginner Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Few-Shot Prompting</h1>
+        <p class="text-xl text-slate-400">
+          Guide AI behavior by providing examples of the desired input-output pairs
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Few-Shot Prompting?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Few-shot prompting involves providing the AI with one or more examples of the desired input-output pairs before presenting the actual task. 
+              This helps the model understand your expected format, style, or logic.
+            </p>
+            <p class="text-slate-400">
+              It's like showing someone a few samples of what you want before asking them to do the task themselves.
+            </p>
+          </div>
+        </section>
+
+        <!-- Types -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Types of Few-Shot</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">One-Shot</h3>
+              <p class="text-slate-400 text-sm">Single example to demonstrate the pattern</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Few-Shot</h3>
+              <p class="text-slate-400 text-sm">2-5 examples for more complex patterns</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Multi-Shot</h3>
+              <p class="text-slate-400 text-sm">Many examples for complex tasks</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example: Sentiment Classification</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-2 block">Prompt with Examples</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap">Classify the sentiment as positive, negative, or neutral.
+
+Example 1: "I love this product!" → positive
+Example 2: "This was a waste of money." → negative
+Example 3: "The package arrived on time." → neutral
+
+Now classify: "The battery life could be better."</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    negative
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example: Format Conversion</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-2 block">Prompt with Examples</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap">Convert the following to JSON format:
+
+Input: John is 30 years old and works as a developer.
+Output: {'{"name": "John", "age": 30, "job": "developer"}'}
+
+Input: Sarah is a designer who is 28 years old.
+Output:</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300 font-mono text-sm">
+                    {'{"name": "Sarah", "age": 28, "job": "designer"}'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Use 2-5 examples</strong>
+                  <p class="text-slate-400 text-sm">More isn't always better. 2-5 well-chosen examples usually work best.</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Show diverse examples</strong>
+                  <p class="text-slate-400 text-sm">Include edge cases and variations to help the model understand the full pattern.</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Be consistent in format</strong>
+                  <p class="text-slate-400 text-sm">Keep your example structure clear and consistent.</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Label clearly</strong>
+                  <p class="text-slate-400 text-sm">Use "Example 1:", "Input:", "Output:" labels to make it clear what you're showing.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- When to Use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use Few-Shot</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="grid md:grid-cols-2 gap-3 text-slate-300">
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span> When you need specific output format
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span> For consistent styling across outputs
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span> When zero-shot doesn't work well
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span> For complex classification tasks
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span> To match your coding style
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span> For domain-specific tasks
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/zeroshot" class="text-slate-400 hover:text-white transition-colors">
+            ← Zero-Shot
+          </a>
+          <a href="/learn/techniques/cot" class="px-6 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 transition-colors">
+            Next: Chain-of-Thought →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

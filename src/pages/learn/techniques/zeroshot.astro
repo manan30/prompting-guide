@@ -1,0 +1,190 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TechniqueNav from '../../../components/TechniqueNav.astro';
+---
+
+<Layout title="Zero-Shot Prompting">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-4">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Zero-Shot</span>
+      </nav>
+
+      <!-- Technique Navigation -->
+      <TechniqueNav currentSlug="zeroshot" />
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm mb-4">
+          Beginner Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Zero-Shot Prompting</h1>
+        <p class="text-xl text-slate-400">
+          The simplest form of prompting - giving direct instructions without any examples
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Zero-Shot Prompting?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Zero-shot prompting means asking AI to perform a task without providing any examples or additional context beyond the request itself. 
+              You rely entirely on the model's training to understand and complete the task.
+            </p>
+            <p class="text-slate-400">
+              This works because modern language models have been trained on vast amounts of data and can generalize to new tasks 
+              without explicit examples.
+            </p>
+          </div>
+        </section>
+
+        <!-- When to use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use It</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-emerald-400">Best For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Simple, well-defined tasks</li>
+                <li>• Common patterns and formats</li>
+                <li>• Quick questions</li>
+                <li>• Tasks the model knows well</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-rose-400">Not Ideal For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Specific output formats</li>
+                <li>• Unique or unusual tasks</li>
+                <li>• Style-specific requirements</li>
+                <li>• Complex multi-step tasks</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Simple Question</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+                    What is the capital of France?
+                  </div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    The capital of France is Paris.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Instruction-Based</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+                    Summarize this article in 3 bullet points.
+                  </div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <ul class="list-disc pl-4 space-y-1">
+                      <li>First main point from the article</li>
+                      <li>Second key finding</li>
+                      <li>Third important conclusion</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Use clear action verbs</strong>
+                  <p class="text-slate-400 text-sm">Start with specific verbs like "summarize," "explain," "write," "translate"</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Be specific about format</strong>
+                  <p class="text-slate-400 text-sm">Say "in 3 bullet points" or "as a table" when you need a specific structure</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Include constraints</strong>
+                  <p class="text-slate-400 text-sm">Specify length, tone, or other requirements upfront</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-emerald-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Keep it focused</strong>
+                  <p class="text-slate-400 text-sm">One clear request works better than multiple vague ones</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Zero-Shot vs Few-Shot</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Zero-shot works well for common tasks, but when you need specific formats or styles, 
+              few-shot prompting (providing examples) often produces better results.
+            </p>
+            <div class="mt-4">
+              <a href="/learn/techniques/fewshot" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors">
+                Learn Few-Shot Prompting →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn" class="text-slate-400 hover:text-white transition-colors">
+            ← Back to Learn
+          </a>
+          <a href="/learn/techniques/fewshot" class="px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 transition-colors">
+            Next: Few-Shot →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

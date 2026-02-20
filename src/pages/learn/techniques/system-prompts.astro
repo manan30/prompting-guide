@@ -1,0 +1,215 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TechniqueNav from '../../../components/TechniqueNav.astro';
+---
+
+<Layout title="System Prompts">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-4">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">System Prompts</span>
+      </nav>
+
+      <!-- Technique Navigation -->
+      <TechniqueNav currentSlug="system-prompts" />
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-sm mb-4">
+          Intermediate Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">System Prompts</h1>
+        <p class="text-xl text-slate-400">
+          Set persistent behavior and constraints that guide the AI throughout a conversation
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What are System Prompts?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              System prompts are high-level instructions that set the overall context, persona, or behavior 
+              for an AI conversation. Unlike user prompts which change with each message, system prompts 
+              remain active throughout the entire session.
+            </p>
+            <p class="text-slate-400">
+              Think of it as setting the "ground rules" before a conversation begins. The system prompt 
+              tells the AI who it is, how it should respond, and what boundaries to observe.
+            </p>
+          </div>
+        </section>
+
+        <!-- When to use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use It</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-rose-400">Best For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Setting AI persona/tone</li>
+                <li>• Defining response format</li>
+                <li>• Establishing safety guidelines</li>
+                <li>• Multi-turn conversations</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Not Ideal For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Single-turn queries</li>
+                <li>• Quick factual questions</li>
+                <li>• One-off tasks</li>
+                <li>• When persona isn't relevant</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Code Reviewer Persona</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">System Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+You are a senior software engineer with 15 years of experience. 
+Your role is to review code for bugs, security vulnerabilities, 
+and performance issues. Always explain issues clearly and provide 
+specific suggestions with code examples when possible.</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">User Input</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    Review this function for issues:
+                    <br/><code class="text-cyan-400">def get_user(id): return db.query(id)</code>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Security Issues:</strong>
+                    <br/>• SQL injection vulnerability - use parameterized queries
+                    <br/>• No input validation for `id` parameter
+                    <br/><br/>
+                    <strong>Best Practices:</strong>
+                    <br/>• Add type hints
+                    <br/>• Implement error handling
+                    <br/>• Add docstring
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Structured Output</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">System Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+You are a data extraction assistant. Always respond in valid JSON 
+with exactly these keys: {'{'}"title": string, "date": string in YYYY-MM-DD format, 
+"entities": string array, "summary": string under 100 words{'}'}</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">User Input</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    Extract information from this article about tech mergers...
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300 font-mono text-sm">
+{'{'}
+  "title": "Tech Giants Merger Creates Industry Shift",
+  "date": "2024-01-15",
+  "entities": ["TechCorp", "DataFlow Inc", "Federal Trade Commission"],
+  "summary": "Major technology companies announce merger..."
+{'}'}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-rose-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Be specific but concise</strong>
+                  <p class="text-slate-400 text-sm">Include essential rules without overwhelming the model with details</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-rose-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Place key instructions early</strong>
+                  <p class="text-slate-400 text-sm">The model gives more weight to instructions at the beginning</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-rose-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Test and iterate</strong>
+                  <p class="text-slate-400 text-sm">System prompts often need refinement based on actual outputs</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-rose-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Combine with user prompts</strong>
+                  <p class="text-slate-400 text-sm">System prompts set context; user prompts provide specific tasks</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">System vs User Prompts</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              System prompts define persistent behavior across a session, while user prompts are 
+              task-specific. For best results, use system prompts for overall context and user prompts 
+              for immediate tasks. Some platforms combine these into a single conversation.
+            </p>
+            <div class="mt-4">
+              <a href="/learn/techniques/chain-prompts" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 transition-colors">
+                Learn Prompt Chaining →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/xml-tags" class="px-6 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 transition-colors">
+            ← Previous: XML Tags
+          </a>
+          <a href="/learn/techniques/chain-prompts" class="px-6 py-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 hover:bg-teal-500/20 transition-colors">
+            Next: Prompt Chaining →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,215 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Tree of Thoughts">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Tree of Thoughts</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-4">
+          Advanced Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Tree of Thoughts</h1>
+        <p class="text-xl text-slate-400">
+          Explore multiple reasoning paths simultaneously and select the best solution
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Tree of Thoughts?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Tree of Thoughts (ToT) is an advanced prompting technique that encourages the AI to 
+              explore multiple reasoning paths at once, evaluating different approaches before settling 
+              on a final answer. Instead of linear thinking, it structures the problem as a tree where 
+              each branch represents a different possibility.
+            </p>
+            <p class="text-slate-400">
+              This is particularly powerful for complex problems where trial-and-error or exploring 
+              alternatives leads to better outcomes than immediately committing to one approach.
+            </p>
+          </div>
+        </section>
+
+        <!-- When to use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use It</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-purple-400">Best For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Strategic planning</li>
+                <li>• Complex puzzles</li>
+                <li>• Creative writing</li>
+                <li>• Multi-criteria decisions</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Not Ideal For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Simple factual questions</li>
+                <li>• Quick tasks</li>
+                <li>• When one solution suffices</li>
+                <li>• Limited context scenarios</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Decision Making</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+I need to decide on a tech stack for a startup. Consider three approaches:
+
+1. React + Node.js (proven, large ecosystem)
+2. Next.js + Serverless (fast to market)
+3. Flutter + Firebase (mobile-first)
+
+For each option, evaluate: development speed, hiring pool, scalability, 
+and maintenance burden. Then recommend the best choice with reasoning.</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Option 1: React + Node.js</strong>
+                    <br/>• Dev Speed: 7/10 (mature tooling)
+                    <br/>• Hiring: 9/10 (largest pool)
+                    <br/>• Scalability: 8/10
+                    <br/><br/>
+                    <strong>Option 2: Next.js + Serverless</strong>
+                    <br/>• Dev Speed: 9/10 (fastest)
+                    <br/>• Hiring: 6/10
+                    <br/>• Scalability: 7/10
+                    <br/><br/>
+                    <strong>Recommendation: Option 2</strong> - Best for speed-to-market...
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Creative Problem Solving</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+Solve this: A farmer needs to cross a river with a wolf, goat, and cabbage.
+The boat can only hold the farmer plus one item. If left alone, 
+the wolf eats the goat, or the goat eats the cabbage.
+
+Explore three different solution paths and identify the correct sequence.</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    <strong>Path 1: Direct attempts</strong> - Wolf+Goat or Goat+Cabbage left alone = fail
+                    <br/><br/>
+                    <strong>Path 2: Multiple trips</strong> - Farmer must shuttle back and forth
+                    <br/><br/>
+                    <strong>Path 3: Strategic ordering</strong> (correct):
+                    <br/>1. Take goat across
+                    <br/>2. Return alone
+                    <br/>3. Take wolf across, bring goat back
+                    <br/>4. Take cabbage across
+                    <br/>5. Return alone
+                    <br/>6. Take goat across
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-purple-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Define evaluation criteria</strong>
+                  <p class="text-slate-400 text-sm">Tell the model how to compare and judge different paths</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-purple-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Limit branch count</strong>
+                  <p class="text-slate-400 text-sm">3-5 branches is usually optimal; too many becomes unwieldy</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-purple-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Require explicit comparison</strong>
+                  <p class="text-slate-400 text-sm">Ask for side-by-side evaluation, not just descriptions</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-purple-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Have the model "debate" paths</strong>
+                  <p class="text-slate-400 text-sm">Let it argue for and against each approach before deciding</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">ToT vs Chain-of-Thought</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              While Chain-of-Thought explores one reasoning path sequentially, Tree of Thoughts 
+              explores multiple paths in parallel. CoT is like following a single thread; ToT 
+              is like a branching decision tree. Use ToT for complex problems where multiple 
+              solutions exist and the best isn't obvious.
+            </p>
+            <div class="mt-4">
+              <a href="/learn/techniques/meta" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
+                Learn Meta-Prompting →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/chain-prompts" class="px-6 py-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 hover:bg-teal-500/20 transition-colors">
+            ← Previous: Prompt Chaining
+          </a>
+          <a href="/learn/techniques/meta" class="px-6 py-3 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 hover:bg-orange-500/20 transition-colors">
+            Next: Meta-Prompting →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

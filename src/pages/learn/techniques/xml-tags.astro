@@ -1,0 +1,222 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TechniqueNav from '../../../components/TechniqueNav.astro';
+---
+
+<Layout title="XML Tags & Delimiters">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-4">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">XML Tags & Delimiters</span>
+      </nav>
+
+      <!-- Technique Navigation -->
+      <TechniqueNav currentSlug="xml-tags" />
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm mb-4">
+          Intermediate Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">XML Tags & Delimiters</h1>
+        <p class="text-xl text-slate-400">
+          Use structured formatting to clearly separate instructions from content
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is XML Tags & Delimiters?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              XML tags and delimiters are a structured way to organize your prompts by separating different components 
+              into distinct sections. Using tags like &lt;instruction&gt;, &lt;context&gt;, and &lt;input&gt; helps 
+              the AI understand exactly what each part of your prompt is supposed to do.
+            </p>
+            <p class="text-slate-400">
+              This technique is especially powerful with LLMs trained on code or XML-like structures, as they recognize 
+              these patterns as explicit boundaries.
+            </p>
+          </div>
+        </section>
+
+        <!-- When to use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use It</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-blue-400">Best For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Long, complex prompts</li>
+                <li>• Multi-part tasks</li>
+                <li>• Document processing</li>
+                <li>• Code generation tasks</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-rose-400">Not Ideal For:</h3>
+              <ul class="text-slate-400 space-y-2">
+                <li>• Simple, one-line queries</li>
+                <li>• Quick questions</li>
+                <li>• Casual conversations</li>
+                <li>• Time-sensitive tasks</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 1: Document Processing</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap">&lt;instruction&gt;
+Extract the key information from the article below.
+&lt;/instruction&gt;
+
+&lt;context&gt;
+This article discusses climate change impacts on coastal cities.
+&lt;/context&gt;
+
+&lt;input&gt;
+[Article content here...]
+&lt;/input&gt;</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+                    Review this function for issues:
+                    <br/><span class="text-cyan-400">def get_user(id): return db.query(id)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Example 2: Code Generation</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Prompt</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap">&lt;task&gt;
+Write a Python function with documentation.
+&lt;/task&gt;
+
+&lt;requirements&gt;
+- Use type hints
+- Include docstring
+- Handle edge cases
+&lt;/requirements&gt;
+
+&lt;input&gt;
+Create a function to calculate factorial.
+&lt;/input&gt;</div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300 font-mono text-sm">
+def factorial(n: int) -> int:
+    """Calculate the factorial of a non-negative integer.
+    
+    Args:
+        n: A non-negative integer
+    
+    Returns:
+        The factorial of n
+    
+    Raises:
+        ValueError: If n is negative
+    """
+    if n &lt; 0:
+        raise ValueError("n must be non-negative")
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Best Practices</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-blue-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Use consistent tag names</strong>
+                  <p class="text-slate-400 text-sm">Stick to standard tags like &lt;instruction&gt;, &lt;context&gt;, &lt;input&gt;, &lt;output&gt;</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Close all tags</strong>
+                  <p class="text-slate-400 text-sm">Always use closing tags (&lt;/tag&gt;) to maintain proper structure</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Nest logically</strong>
+                  <p class="text-slate-400 text-sm">Group related content under parent tags for clarity</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Add comments for complex prompts</strong>
+                  <p class="text-slate-400 text-sm">Use &lt;!-- comments --&gt; to explain sections to future readers</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">XML Tags vs Plain Text</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              While plain text prompts work for simple tasks, XML tags provide clarity for complex prompts. 
+              They help the model distinguish between instructions and content, reducing confusion and improving 
+              output quality. This becomes especially important when building AI applications or chains.
+            </p>
+            <div class="mt-4">
+              <a href="/learn/techniques/system-prompts" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                Learn System Prompts →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/role" class="px-6 py-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 hover:bg-amber-500/20 transition-colors">
+            ← Previous: Role-Based
+          </a>
+          <a href="/learn/techniques/system-prompts" class="px-6 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 transition-colors">
+            Next: System Prompts →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

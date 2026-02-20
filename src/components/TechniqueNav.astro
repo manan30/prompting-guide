@@ -1,0 +1,44 @@
+---
+interface Props {
+  currentSlug: string;
+  basePath?: string;
+}
+
+const techniques = [
+  { slug: 'zeroshot', title: 'Zero-Shot', color: 'emerald' },
+  { slug: 'fewshot', title: 'Few-Shot', color: 'cyan' },
+  { slug: 'cot', title: 'CoT', color: 'violet' },
+  { slug: 'role', title: 'Role', color: 'amber' },
+  { slug: 'xml-tags', title: 'XML', color: 'blue' },
+  { slug: 'system-prompts', title: 'System', color: 'rose' },
+  { slug: 'chain-prompts', title: 'Chain', color: 'teal' },
+  { slug: 'tot', title: 'ToT', color: 'purple' },
+  { slug: 'meta', title: 'Meta', color: 'orange' },
+  { slug: 'reflection', title: 'Reflect', color: 'pink' },
+];
+
+const { currentSlug, basePath = '/learn/techniques' } = Astro.props;
+
+const currentIndex = techniques.findIndex(t => t.slug === currentSlug);
+const prevTech = currentIndex > 0 ? techniques[currentIndex - 1] : null;
+const nextTech = currentIndex < techniques.length - 1 ? techniques[currentIndex + 1] : null;
+---
+
+<div class="mb-8">
+  <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
+    <span class="text-sm text-slate-500 shrink-0">Jump to:</span>
+    {techniques.map((tech) => (
+      <a
+        href={`${basePath}/${tech.slug}`}
+        class:list={[
+          'px-3 py-1 rounded-full text-xs font-medium transition-all whitespace-nowrap',
+          currentSlug === tech.slug
+            ? `bg-${tech.color}-500/20 text-${tech.color}-400 border border-${tech.color}-500/50`
+            : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
+        ]}
+      >
+        {tech.title}
+      </a>
+    ))}
+  </div>
+</div>

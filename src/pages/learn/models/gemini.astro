@@ -1,0 +1,165 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Gemini Guide">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Model Guides</span>
+        <span>/</span>
+        <span class="text-white">Gemini</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm mb-4">
+          Model Guide
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Gemini</h1>
+        <p class="text-xl text-slate-400">
+          Google's Gemini - best practices and techniques
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- Overview -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Gemini is Google's multimodal AI model, designed from the ground up to be natively 
+              multimodal - understanding and reasoning across text, code, images, audio, and video. 
+              It's integrated across Google's products including Search, Workspace, and Gemini apps.
+            </p>
+            <p class="text-slate-400">
+              Gemini 1.5 Pro offers large context windows (up to 2M tokens) and strong performance 
+              on reasoning tasks. Available via gemini.google.com and Google AI Studio.
+            </p>
+          </div>
+        </section>
+
+        <!-- Strengths -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Strengths</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-violet-400">Multimodal</h3>
+              <p class="text-slate-400 text-sm">Native support for images, audio, and video input</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-cyan-400">Long Context</h3>
+              <p class="text-slate-400 text-sm">Can process very long documents and codebases</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-emerald-400">Google Integration</h3>
+              <p class="text-slate-400 text-sm">Deep integration with Search and Workspace</p>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-amber-400">Code Generation</h3>
+              <p class="text-slate-400 text-sm">Strong coding capabilities with good explanations</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Gemini-Specific Tips</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">01</span>
+                <div>
+                  <strong class="text-white">Leverage multimodal input</strong>
+                  <p class="text-slate-400 text-sm">Include images, screenshots, or diagrams when relevant</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">02</span>
+                <div>
+                  <strong class="text-white">Use system instructions</strong>
+                  <p class="text-slate-400 text-sm">Set persistent behavior via system prompts</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">03</span>
+                <div>
+                  <strong class="text-white">Be specific about output</strong>
+                  <p class="text-slate-400 text-sm">Gemini works well with explicit format requirements</p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-violet-400 font-mono">04</span>
+                <div>
+                  <strong class="text-white">Use grounding options</strong>
+                  <p class="text-slate-400 text-sm">Enable Google Search grounding for current information</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Example Prompt -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Example Prompt</h2>
+          <div class="card-gradient rounded-xl overflow-hidden">
+            <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+              <span class="text-sm text-slate-400">Effective Gemini Prompt</span>
+            </div>
+            <div class="p-6">
+              <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm mb-4">
+You are a UX designer reviewing a mobile app interface.
+
+Context:
+- This is a banking app for millennials
+- Target audience: 25-40 years old
+
+Task:
+Analyze this screenshot and provide:
+1. First impression (1 sentence)
+2. 3 strengths
+3. 3 areas for improvement
+4. Overall score (1-10)
+
+[Insert screenshot of app UI]
+
+Format as:
+## First Impression
+[Your response]
+
+## Strengths
+- [Item 1]
+...
+
+## Improvements
+- [Item 1]
+...
+
+## Score: X/10
+              </div>
+              <p class="text-slate-400 text-sm">
+                This prompt leverages Gemini's multimodal strengths by including an image, provides 
+                clear context about the target audience, and specifies a structured output format. 
+                Gemini excels at visual analysis combined with contextual reasoning.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/models/claude" class="text-slate-400 hover:text-white transition-colors">
+            ← Previous: Claude
+          </a>
+          <a href="/learn" class="px-6 py-3 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-400 hover:bg-slate-500/20 transition-colors">
+            Back to Learn Hub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

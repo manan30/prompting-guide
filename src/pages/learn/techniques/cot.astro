@@ -1,0 +1,139 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Chain-of-Thought Prompting">
+  <div class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-slate-400">Techniques</span>
+        <span>/</span>
+        <span class="text-white">Chain-of-Thought</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm mb-4">
+          Intermediate Technique
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Chain-of-Thought</h1>
+        <p class="text-xl text-slate-400">
+          Encourage step-by-step reasoning for complex problem solving
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-12">
+        <!-- What is it -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">What is Chain-of-Thought?</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Chain-of-Thought (CoT) prompting encourages the AI to break down complex reasoning into a series of intermediate steps. 
+              Instead of jumping to the answer, it shows its work first.
+            </p>
+            <p class="text-slate-400">
+              This technique significantly improves performance on math, logic, and multi-step reasoning tasks.
+            </p>
+          </div>
+        </section>
+
+        <!-- How it works -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">How It Works</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">Add phrases like these to your prompts:</p>
+            <ul class="space-y-2 font-mono text-sm">
+              <li class="text-violet-400">• "Think step by step"</li>
+              <li class="text-violet-400">• "Let's work through this logically"</li>
+              <li class="text-violet-400">• "Explain your reasoning"</li>
+              <li class="text-violet-400">• "Show your work"</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Examples</h2>
+          
+          <div class="space-y-6">
+            <div class="card-gradient rounded-xl overflow-hidden">
+              <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                <span class="text-sm text-slate-400">Math Problem</span>
+              </div>
+              <div class="p-6">
+                <div class="mb-4">
+                  <span class="text-xs uppercase text-slate-500 mb-2 block">Prompt with CoT</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm">
+If a store sells 3 apples for $2, how much would 15 apples cost? Let's think step by step.
+                  </div>
+                </div>
+                <div>
+                  <span class="text-xs uppercase text-slate-500 mb-1 block">Output</span>
+                  <div class="bg-slate-800/50 rounded-lg p-4 text-slate-300">
+Step 1: Find the cost per apple: $2 ÷ 3 = $0.67 per apple<br/>
+Step 2: Multiply by 15 apples: $0.67 × 15 = $10.00<br/>
+Answer: $10.00
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- When to Use -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">When to Use CoT</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-violet-400">Use It For:</h3>
+              <ul class="text-slate-400 text-sm space-y-2">
+                <li>• Math problems</li>
+                <li>• Logic puzzles</li>
+                <li>• Multi-step calculations</li>
+                <li>• Complex decisions</li>
+                <li>• Debugging code</li>
+              </ul>
+            </div>
+            <div class="card-gradient rounded-xl p-6">
+              <h3 class="font-semibold mb-2 text-slate-400">Skip It For:</h3>
+              <ul class="text-slate-400 text-sm space-y-2">
+                <li>• Simple questions</li>
+                <li>• Creative writing</li>
+                <li>• Basic translations</li>
+                <li>• Quick lookups</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Zero-shot CoT -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Zero-Shot CoT</h2>
+          <div class="card-gradient rounded-xl p-6">
+            <p class="text-slate-300 mb-4">
+              Simply adding "Let's think step by step" to any prompt can trigger chain-of-thought reasoning, 
+              even without explicit examples. This is called Zero-Shot CoT.
+            </p>
+            <div class="bg-slate-800/50 rounded-lg p-4 font-mono text-sm mt-4">
+              "What is 23 × 47? Let's think step by step."
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between pt-8 border-t border-slate-800">
+          <a href="/learn/techniques/fewshot" class="text-slate-400 hover:text-white transition-colors">
+            ← Few-Shot
+          </a>
+          <a href="/learn/techniques/role" class="px-6 py-3 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 hover:bg-violet-500/20 transition-colors">
+            Next: Role-Based →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
