@@ -107,10 +107,10 @@ Suggestions:
               <button
                 key={tech.id}
                 onClick={() => handleTechniqueChange(tech)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
                   selectedTechnique.id === tech.id
-                    ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-400'
-                    : 'bg-slate-800 border border-slate-700 text-slate-400 hover:text-white'
+                    ? 'bg-stone-700 text-stone-100'
+                    : 'bg-stone-800/50 text-stone-400 hover:text-stone-200'
                 }`}
               >
                 {tech.name}
@@ -130,7 +130,7 @@ Suggestions:
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             rows={8}
-            className="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-slate-200 font-mono text-sm focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50"
+            className="w-full bg-stone-900/50 border border-stone-700 rounded-lg p-3 text-stone-200 font-mono text-sm focus:outline-none focus:border-stone-600"
             placeholder="Enter your prompt here..."
           />
         </div>
@@ -138,7 +138,7 @@ Suggestions:
         <button
           onClick={simulateResponse}
           disabled={isLoading || !prompt.trim()}
-          className="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-900 font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-3 rounded-lg bg-stone-100 text-stone-900 font-medium text-sm hover:bg-stone-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
@@ -158,49 +158,48 @@ Suggestions:
           )}
         </button>
 
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <button
             onClick={() => {
               navigator.clipboard.writeText(prompt);
             }}
-            className="flex-1 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="flex-1 py-2.5 rounded-lg bg-stone-800 border border-stone-700 text-stone-400 hover:text-stone-200 hover:border-stone-600 transition-colors flex items-center justify-center gap-2 text-xs"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
             </svg>
-            Copy Prompt
+            Copy
           </button>
           <button
             onClick={() => {
               localStorage.setItem('savedPrompt', prompt);
-              alert('Prompt saved! Go to My Prompts to see it.');
+              alert('Prompt saved! Go to My Notes to see it.');
             }}
-            className="flex-1 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="flex-1 py-2.5 rounded-lg bg-stone-800 border border-stone-700 text-stone-400 hover:text-stone-200 hover:border-stone-600 transition-colors flex items-center justify-center gap-2 text-xs"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
             </svg>
-            Save Prompt
+            Save
           </button>
         </div>
       </div>
 
       {/* Right: Output */}
       <div>
-        <label className="block text-sm font-medium text-slate-300 mb-2">
+        <label className="block text-sm font-medium text-stone-300 mb-2">
           AI Response
         </label>
-        <div className="bg-slate-800/30 border border-slate-700 rounded-xl min-h-[400px] p-6">
+        <div className="bg-stone-900/30 border border-stone-700 rounded-lg min-h-[300px] p-4">
           {output ? (
-            <div className="text-slate-200 whitespace-pre-wrap">{output}</div>
+            <div className="text-stone-200 whitespace-pre-wrap text-sm">{output}</div>
           ) : (
-            <div className="h-full flex items-center justify-center text-slate-500">
+            <div className="h-full flex items-center justify-center text-stone-500">
               <div className="text-center">
-                <svg className="w-12 h-12 mx-auto mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 mx-auto mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
-                <p>Your response will appear here</p>
-                <p className="text-sm mt-1">This is a simulation - connect to an API for real responses</p>
+                <p className="text-sm">Response will appear here</p>
               </div>
             </div>
           )}

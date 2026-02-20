@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import PromptBuilder from '../components/PromptBuilder';
 ---
 
-<Layout title="Prompt Playground">
+<Layout title="Try It Out">
   <div class="py-12 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="gradient-text">Prompt Playground</span>
+          <span class="gradient-text">Try It Out</span>
         </h1>
         <p class="text-xl text-slate-400 max-w-2xl mx-auto">
           Experiment with different prompting techniques and see how they affect AI responses
@@ -21,26 +21,26 @@ import PromptBuilder from '../components/PromptBuilder';
 
       <!-- Tips Section -->
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-6">Quick Tips</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="card-gradient rounded-xl p-6">
-            <h3 class="font-semibold mb-2 text-emerald-400">Start Simple</h3>
-            <p class="text-slate-400 text-sm">Begin with a basic prompt, then add complexity incrementally to see what each change does.</p>
+        <h2 class="text-xl font-semibold mb-6 text-stone-200">Quick tips</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="card-gradient rounded-xl p-5">
+            <h3 class="font-medium mb-2 text-stone-200">Start simple</h3>
+            <p class="text-stone-400 text-sm">Begin with a basic prompt, then add complexity incrementally.</p>
           </div>
-          <div class="card-gradient rounded-xl p-6">
-            <h3 class="font-semibold mb-2 text-cyan-400">Compare Techniques</h3>
-            <p class="text-slate-400 text-sm">Try the same task with zero-shot, few-shot, and chain-of-thought to see the differences.</p>
+          <div class="card-gradient rounded-xl p-5">
+            <h3 class="font-medium mb-2 text-stone-200">Compare techniques</h3>
+            <p class="text-stone-400 text-sm">Try the same task with different approaches to see what works.</p>
           </div>
-          <div class="card-gradient rounded-xl p-6">
-            <h3 class="font-semibold mb-2 text-violet-400">Save Good Prompts</h3>
-            <p class="text-slate-400 text-sm">When you find a prompt that works well, save it to your library for future use.</p>
+          <div class="card-gradient rounded-xl p-5">
+            <h3 class="font-medium mb-2 text-stone-200">Save good prompts</h3>
+            <p class="text-stone-400 text-sm">When you find one that works, save it for future use.</p>
           </div>
         </div>
       </div>
 
       <!-- Technique Reference -->
       <div class="mt-12">
-        <h2 class="text-2xl font-bold mb-6">Technique Quick Reference</h2>
+        <h2 class="text-xl font-semibold mb-6 text-stone-200">Technique quick reference</h2>
         <div class="card-gradient rounded-xl overflow-hidden">
           <div class="overflow-x-auto">
             <table class="w-full">
