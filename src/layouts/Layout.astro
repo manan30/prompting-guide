@@ -11,13 +11,14 @@ interface Props {
 const {
   title,
   description = "Master the art of prompting AI models",
-  image = "/favicon.svg",
+  image = "/og-image.png",
   noIndex = false
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const absoluteImageUrl = new URL(image, siteUrl).toString();
+const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -28,19 +29,19 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
     <meta name="description" content={description} />
     <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
     <meta name="theme-color" content="#0c0a09" />
-    <meta property="og:site_name" content="Prompt Mastery" />
+    <meta property="og:site_name" content="Prompt Atlas" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | Prompt Mastery`} />
+    <meta property="og:title" content={`${title} | Prompt Atlas`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={absoluteImageUrl} />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={`${title} | Prompt Mastery`} />
+    <meta property="twitter:title" content={`${title} | Prompt Atlas`} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={absoluteImageUrl} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | Prompt Mastery</title>
+    <title>{title} | Prompt Atlas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -68,7 +69,7 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
               </svg>
             </div>
             <span class="text-sm text-stone-300">
-              Prompt Mastery
+              Prompt Atlas
             </span>
           </a>
           
@@ -76,14 +77,8 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
             <a href="/learn" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
               Learn
             </a>
-            <a href="/playground" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
-              Try It Out
-            </a>
-            <a href="/exercises" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
-              Exercises
-            </a>
-            <a href="/my-prompts" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
-              My Notes
+            <a href="/learn/real-world-prompts" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
+              Real Prompts
             </a>
           </div>
 
@@ -98,9 +93,7 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
       <div id="mobile-menu" class="hidden md:hidden bg-stone-950 border-t border-stone-800/50">
         <div class="px-6 py-3 space-y-2">
           <a href="/learn" class="block py-2 text-sm text-stone-500">Learn</a>
-          <a href="/playground" class="block py-2 text-sm text-stone-500">Try It Out</a>
-          <a href="/exercises" class="block py-2 text-sm text-stone-500">Exercises</a>
-          <a href="/my-prompts" class="block py-2 text-sm text-stone-500">My Notes</a>
+          <a href="/learn/real-world-prompts" class="block py-2 text-sm text-stone-500">Real Prompts</a>
         </div>
       </div>
     </nav>
@@ -111,8 +104,25 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
 
     <footer class="border-t border-stone-800/50 mt-24">
       <div class="max-w-5xl mx-auto px-6 py-8">
-        <p class="text-xs text-stone-600 text-center">
-          Made with care. Resources from Prompting Guide, Anthropic, OpenAI, MIT, Google.
+        <p class="text-xs text-stone-500 text-center">
+          &copy; {currentYear}
+          <a
+            href="https://mananjoshi.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ml-1 text-stone-400 hover:text-stone-200 underline underline-offset-2 decoration-stone-600 hover:decoration-stone-300 transition-colors"
+          >
+            Manan Joshi
+          </a>
+          <span class="mx-1 text-stone-600">&middot;</span>
+          <a
+            href="https://github.com/manan30/prompting-guide"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-stone-400 hover:text-stone-200 underline underline-offset-2 decoration-stone-600 hover:decoration-stone-300 transition-colors"
+          >
+            GitHub
+          </a>
         </p>
       </div>
     </footer>

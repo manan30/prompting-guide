@@ -3,9 +3,6 @@ import type { APIRoute } from 'astro';
 const routes = [
   '/',
   '/learn',
-  '/playground',
-  '/exercises',
-  '/my-prompts',
   '/learn/real-world-prompts',
   '/learn/real-world-prompts/opencode',
   '/learn/models/chatgpt',
@@ -30,9 +27,6 @@ const routes = [
 const priorityByPath: Record<string, string> = {
   '/': '1.0',
   '/learn': '0.9',
-  '/playground': '0.8',
-  '/exercises': '0.8',
-  '/my-prompts': '0.7',
   '/learn/real-world-prompts': '0.8'
 };
 

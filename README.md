@@ -1,7 +1,7 @@
-# Prompt Mastery
+# Prompt Atlas
 
-Prompt Mastery is a static educational website for learning practical AI prompting.
-It combines structured lessons with an interactive playground and a personal prompt notes tool.
+Prompt Atlas is a static educational website for learning practical AI prompting.
+It combines structured lessons with curated real-world prompt references.
 
 ## Stack
 
@@ -14,9 +14,7 @@ It combines structured lessons with an interactive playground and a personal pro
 
 - `/` - landing page and overview
 - `/learn` - techniques, model guides, and use cases
-- `/playground` - interactive prompt builder with simulated AI response output
-- `/exercises` - practice exercises by difficulty level
-- `/my-prompts` - local prompt notes library saved in browser storage
+- `/learn/real-world-prompts` - source-linked real-world prompt references
 - `/sitemap.xml` - generated sitemap endpoint
 - `/robots.txt` - robots configuration
 
@@ -35,10 +33,7 @@ It combines structured lessons with an interactive playground and a personal pro
 │   │   └── Layout.astro
 │   ├── pages/
 │   │   ├── learn/
-│   │   ├── exercises.astro
 │   │   ├── index.astro
-│   │   ├── my-prompts.astro
-│   │   ├── playground.astro
 │   │   ├── robots.txt.ts
 │   │   └── sitemap.xml.ts
 │   └── styles/
@@ -98,4 +93,3 @@ bun run preview
 - Keep content pages in `.astro` files.
 - Keep interactive UI in React components under `src/components`.
 - Favor consistent `stone`-based theme classes and shared layout styles.
-- Browser-persisted prompt notes are intentionally local-only (`localStorage`).
