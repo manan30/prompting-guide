@@ -53,36 +53,36 @@ It combines structured lessons with an interactive playground and a personal pro
 1. Install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 2. Start the dev server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 3. Open the app at `http://localhost:4321`.
 
 ## Available scripts
 
-- `npm run dev` - start local dev server
-- `npm run build` - production build into `dist/`
-- `npm run preview` - preview production build locally
-- `npm run astro` - run Astro CLI commands
+- `bun run dev` - start local dev server
+- `bun run build` - production build into `dist/`
+- `bun run preview` - preview production build locally
+- `bun run astro` - run Astro CLI commands
 
 ## Build and deploy
 
 1. Run a production build:
 
 ```bash
-npm run build
+bun run build
 ```
 
 2. Preview the static output:
 
 ```bash
-npm run preview
+bun run preview
 ```
 
 3. Deploy `dist/` to your static hosting platform or Cloudflare Pages.
