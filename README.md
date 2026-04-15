@@ -75,6 +75,7 @@ bun run dev
 
 - `PUBLIC_POSTHOG_KEY` - PostHog project token for client-side analytics
 - `PUBLIC_POSTHOG_HOST` - PostHog API host (for example `https://us.i.posthog.com`)
+- `PUBLIC_ENABLE_ANALYTICS` - optional local override (`true`) to enable analytics in non-production
 
 ## Build and deploy
 

@@ -2,11 +2,12 @@ import posthog from 'posthog-js';
 
 const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
 const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com';
+const isAnalyticsEnabled = import.meta.env.PROD || import.meta.env.PUBLIC_ENABLE_ANALYTICS === 'true';
 
 let isInitialized = false;
 
 export function initPostHog() {
-  if (typeof window === 'undefined' || isInitialized || !posthogKey) {
+  if (typeof window === 'undefined' || isInitialized || !posthogKey || !isAnalyticsEnabled) {
     return;
   }
 
@@ -26,7 +27,7 @@ export function initPostHog() {
 }
 
 export function trackEvent(eventName: string, properties: Record<string, string | number | boolean> = {}) {
-  if (!posthogKey || typeof window === 'undefined') {
+  if (!posthogKey || typeof window === 'undefined' || !isAnalyticsEnabled) {
     return;
   }
 
