@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://prompting-guide.mananjoshi.me',
+  site: 'https://prompt-atlas.mananjoshi.me',
   vite: {
     plugins: [tailwindcss()]
   },
