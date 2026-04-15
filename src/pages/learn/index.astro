@@ -100,6 +100,13 @@ const useCases = [
     href: '/learn/use-cases/research'
   }
 ];
+
+const realWorldHighlights = [
+  {
+    title: 'OpenCode',
+    description: 'Default system prompt used in anomalyco/opencode sessions.'
+  }
+];
 ---
 
 <Layout title="Learn Prompting">
@@ -116,7 +123,7 @@ const useCases = [
       </div>
 
         <!-- Quick Navigation -->
-        <div class="grid md:grid-cols-4 gap-4 mb-16">
+        <div class="grid md:grid-cols-5 gap-4 mb-16">
           <a href="#techniques" class="card-gradient rounded-xl p-4 text-center hover:border-stone-600 transition-colors">
             <span class="text-stone-300 font-medium">Techniques</span>
           </a>
@@ -128,6 +135,9 @@ const useCases = [
           </a>
           <a href="/playground" class="card-gradient rounded-xl p-4 text-center hover:border-stone-600 transition-colors">
             <span class="text-stone-300 font-medium">Practice</span>
+          </a>
+          <a href="/learn/real-world-prompts" class="card-gradient rounded-xl p-4 text-center hover:border-stone-600 transition-colors">
+            <span class="text-stone-300 font-medium">Real Prompts</span>
           </a>
         </div>
 
@@ -224,6 +234,32 @@ const useCases = [
             </div>
             <p class="text-slate-400 text-sm">Google's Gemini prompting strategies</p>
           </a>
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <h2 class="text-2xl font-bold">Real-World Prompt Library</h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+
+        <div class="card-gradient rounded-2xl p-8 mb-6">
+          <p class="text-slate-300 mb-4">
+            Study system prompts used in real open-source coding tools. Each entry includes a raw system
+            prompt excerpt, an adapted template, and guidance for when to apply it.
+          </p>
+          <a href="/learn/real-world-prompts" class="inline-flex px-4 py-2 rounded-lg border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/10 transition-colors text-sm">
+            Explore Real-World Prompts
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-1 gap-4 max-w-xl">
+          {realWorldHighlights.map((item) => (
+            <div class="card-gradient rounded-xl p-5">
+              <h3 class="text-base font-semibold text-stone-200 mb-2">{item.title}</h3>
+              <p class="text-sm text-slate-400">{item.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 

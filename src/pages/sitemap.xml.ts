@@ -6,6 +6,8 @@ const routes = [
   '/playground',
   '/exercises',
   '/my-prompts',
+  '/learn/real-world-prompts',
+  '/learn/real-world-prompts/opencode',
   '/learn/models/chatgpt',
   '/learn/models/claude',
   '/learn/models/gemini',
@@ -30,7 +32,8 @@ const priorityByPath: Record<string, string> = {
   '/learn': '0.9',
   '/playground': '0.8',
   '/exercises': '0.8',
-  '/my-prompts': '0.7'
+  '/my-prompts': '0.7',
+  '/learn/real-world-prompts': '0.8'
 };
 
 export const GET: APIRoute = ({ site, url }) => {

@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+const prompts = await getCollection('real-world-prompts');
+const sortedPrompts = prompts.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Layout title="Real-World Prompts" description="Curated prompt patterns from real open-source coding assistants.">
+  <div class="py-14 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-stone-400 mb-8">
+        <a href="/learn" class="hover:text-white transition-colors">Learn</a>
+        <span>/</span>
+        <span class="text-stone-200">Real-World Prompts</span>
+      </nav>
+
+      <header class="mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-stone-100 mb-3">Real-World System Prompts</h1>
+        <p class="text-stone-300 max-w-2xl leading-relaxed">
+          Public system prompts and prompt templates from real coding assistants. Each entry includes a raw system prompt excerpt,
+          adaptation template, and usage notes.
+        </p>
+      </header>
+
+      <ul class="grid md:grid-cols-2 gap-5" role="list">
+        {sortedPrompts.map((entry) => (
+          <li>
+            <a
+              href={`/learn/real-world-prompts/${entry.slug}`}
+              class="group block rounded-xl border border-stone-700 bg-stone-900/40 p-6 transition-colors hover:border-cyan-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+            >
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="text-xs uppercase tracking-wider text-cyan-300">{entry.data.sourceProject}</span>
+                <span class="text-xs text-stone-400">Verified {entry.data.verifiedAt}</span>
+              </div>
+              <h2 class="text-lg font-semibold text-stone-100 mb-2 group-hover:text-cyan-200">{entry.data.title}</h2>
+              <p class="text-sm text-stone-300 mb-4 leading-relaxed">{entry.data.summary}</p>
+              <div class="flex flex-wrap gap-2">
+                {entry.data.tags.map((tag) => (
+                  <span class="px-2 py-1 rounded border border-stone-600 bg-stone-800 text-xs text-stone-300">{tag}</span>
+                ))}
+              </div>
+              <span class="mt-4 inline-flex text-sm text-cyan-300">Open prompt details</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <section class="mt-10 rounded-xl border border-stone-700 bg-stone-900/30 p-5" aria-labelledby="source-note">
+        <h2 id="source-note" class="text-sm font-semibold text-stone-100 mb-2">Source and Accuracy Note</h2>
+        <p class="text-sm text-stone-300 leading-relaxed">
+          This section references publicly accessible source files. Some entries use official system prompts, while others use system-prompt templates that are expanded at runtime.
+          Each page links to its exact source path for verification.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>
