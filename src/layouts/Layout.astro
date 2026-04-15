@@ -11,7 +11,7 @@ interface Props {
 const {
   title,
   description = "Master the art of prompting AI models",
-  image = "/og-image.png",
+  image = "/og-image.jpg",
   noIndex = false
 } = Astro.props;
 
@@ -42,6 +42,7 @@ const currentYear = new Date().getFullYear();
     <meta property="twitter:title" content={`${title} | Prompt Atlas`} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={absoluteImageUrl} />
+    <meta property="twitter:image:alt" content="Prompt Atlas - AI Prompting That Works in Production" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Prompt Atlas</title>
