@@ -5,36 +5,45 @@ interface Props {
 }
 
 const techniques = [
-  { slug: 'zeroshot', title: 'Zero-Shot', color: 'emerald' },
-  { slug: 'fewshot', title: 'Few-Shot', color: 'cyan' },
-  { slug: 'cot', title: 'CoT', color: 'violet' },
-  { slug: 'role', title: 'Role', color: 'amber' },
-  { slug: 'xml-tags', title: 'XML', color: 'blue' },
-  { slug: 'system-prompts', title: 'System', color: 'rose' },
-  { slug: 'chain-prompts', title: 'Chain', color: 'teal' },
-  { slug: 'tot', title: 'ToT', color: 'purple' },
-  { slug: 'meta', title: 'Meta', color: 'orange' },
-  { slug: 'reflection', title: 'Reflect', color: 'pink' },
+  { slug: 'zeroshot', title: 'Zero-Shot', tone: 'emerald' },
+  { slug: 'fewshot', title: 'Few-Shot', tone: 'cyan' },
+  { slug: 'cot', title: 'CoT', tone: 'violet' },
+  { slug: 'role', title: 'Role', tone: 'amber' },
+  { slug: 'xml-tags', title: 'XML', tone: 'blue' },
+  { slug: 'system-prompts', title: 'System', tone: 'rose' },
+  { slug: 'chain-prompts', title: 'Chain', tone: 'teal' },
+  { slug: 'tot', title: 'ToT', tone: 'purple' },
+  { slug: 'meta', title: 'Meta', tone: 'orange' },
+  { slug: 'reflection', title: 'Reflect', tone: 'pink' },
 ];
 
-const { currentSlug, basePath = '/learn/techniques' } = Astro.props;
+const toneClasses: Record<string, string> = {
+  emerald: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50',
+  cyan: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50',
+  violet: 'bg-violet-500/20 text-violet-400 border border-violet-500/50',
+  amber: 'bg-amber-500/20 text-amber-400 border border-amber-500/50',
+  blue: 'bg-blue-500/20 text-blue-400 border border-blue-500/50',
+  rose: 'bg-rose-500/20 text-rose-400 border border-rose-500/50',
+  teal: 'bg-teal-500/20 text-teal-400 border border-teal-500/50',
+  purple: 'bg-purple-500/20 text-purple-400 border border-purple-500/50',
+  orange: 'bg-orange-500/20 text-orange-400 border border-orange-500/50',
+  pink: 'bg-pink-500/20 text-pink-400 border border-pink-500/50'
+};
 
-const currentIndex = techniques.findIndex(t => t.slug === currentSlug);
-const prevTech = currentIndex > 0 ? techniques[currentIndex - 1] : null;
-const nextTech = currentIndex < techniques.length - 1 ? techniques[currentIndex + 1] : null;
+const { currentSlug, basePath = '/learn/techniques' } = Astro.props;
 ---
 
 <div class="mb-8">
   <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
-    <span class="text-sm text-slate-500 shrink-0">Jump to:</span>
+    <span class="text-sm text-stone-500 shrink-0">Jump to:</span>
     {techniques.map((tech) => (
       <a
         href={`${basePath}/${tech.slug}`}
         class:list={[
           'px-3 py-1 rounded-full text-xs font-medium transition-all whitespace-nowrap',
           currentSlug === tech.slug
-            ? `bg-${tech.color}-500/20 text-${tech.color}-400 border border-${tech.color}-500/50`
-            : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
+            ? toneClasses[tech.tone]
+            : 'bg-stone-800 text-stone-400 hover:text-stone-100 hover:bg-stone-700'
         ]}
       >
         {tech.title}

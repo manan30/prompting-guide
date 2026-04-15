@@ -3,10 +3,21 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
-  description?: string
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
 }
 
-const { title, description = "Master the art of prompting AI models" } = Astro.props;
+const {
+  title,
+  description = "Master the art of prompting AI models",
+  image = "/favicon.svg",
+  noIndex = false
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const absoluteImageUrl = new URL(image, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -15,74 +26,94 @@ const { title, description = "Master the art of prompting AI models" } = Astro.p
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+    <meta name="theme-color" content="#0c0a09" />
+    <meta property="og:site_name" content="Prompt Mastery" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Prompt Mastery`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={absoluteImageUrl} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={`${title} | Prompt Mastery`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={absoluteImageUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Prompt Mastery</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&display=swap"
+      />
+    </noscript>
   </head>
-  <body class="bg-stone-950 text-stone-300 min-h-screen">
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-stone-950/80 backdrop-blur-lg border-b border-stone-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="/" class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-stone-800 flex items-center justify-center border border-stone-700">
-              <svg class="w-5 h-5 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    <body class="bg-stone-950 text-stone-300 text-base antialiased">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-stone-950/90 backdrop-blur-sm border-b border-stone-800/50">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="flex items-center justify-between h-14">
+          <a href="/" class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center">
+              <svg class="w-4 h-4 text-stone-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <span class="text-lg font-medium text-stone-200">
+            <span class="text-sm text-stone-300">
               Prompt Mastery
             </span>
           </a>
           
-          <div class="hidden md:flex items-center gap-1">
-            <a href="/learn" class="px-4 py-2 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800 transition-all">
+          <div class="hidden md:flex items-center gap-6">
+            <a href="/learn" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
               Learn
             </a>
-            <a href="/playground" class="px-4 py-2 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800 transition-all">
+            <a href="/playground" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
               Try It Out
             </a>
-            <a href="/my-prompts" class="px-4 py-2 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800 transition-all">
-              My Notes
-            </a>
-            <a href="/exercises" class="px-4 py-2 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800 transition-all">
+            <a href="/exercises" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
               Exercises
+            </a>
+            <a href="/my-prompts" class="text-sm text-stone-500 hover:text-stone-200 transition-colors">
+              My Notes
             </a>
           </div>
 
-          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <button id="mobile-menu-btn" class="md:hidden p-1 text-stone-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden bg-stone-950 border-t border-stone-800">
-        <div class="px-4 py-3 space-y-1">
-          <a href="/learn" class="block px-4 py-3 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800">Learn</a>
-          <a href="/playground" class="block px-4 py-3 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800">Try It Out</a>
-          <a href="/my-prompts" class="block px-4 py-3 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800">My Notes</a>
-          <a href="/exercises" class="block px-4 py-3 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800">Exercises</a>
+      <div id="mobile-menu" class="hidden md:hidden bg-stone-950 border-t border-stone-800/50">
+        <div class="px-6 py-3 space-y-2">
+          <a href="/learn" class="block py-2 text-sm text-stone-500">Learn</a>
+          <a href="/playground" class="block py-2 text-sm text-stone-500">Try It Out</a>
+          <a href="/exercises" class="block py-2 text-sm text-stone-500">Exercises</a>
+          <a href="/my-prompts" class="block py-2 text-sm text-stone-500">My Notes</a>
         </div>
       </div>
     </nav>
 
-    <main class="pt-16">
+    <main id="main-content" class="pt-16">
       <slot />
     </main>
 
-    <footer class="border-t border-stone-800 bg-stone-950/50 mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p class="text-stone-500 text-sm">
-            Made with care to help you learn AI prompting
-          </p>
-          <div class="flex items-center gap-6 text-sm text-stone-500">
-            <span>Resources from: Prompting Guide, Anthropic, OpenAI, MIT, Google, Cline</span>
-          </div>
-        </div>
+    <footer class="border-t border-stone-800/50 mt-24">
+      <div class="max-w-5xl mx-auto px-6 py-8">
+        <p class="text-xs text-stone-600 text-center">
+          Made with care. Resources from Prompting Guide, Anthropic, OpenAI, MIT, Google.
+        </p>
       </div>
     </footer>
 
@@ -92,6 +123,8 @@ const { title, description = "Master the art of prompting AI models" } = Astro.p
       
       btn?.addEventListener('click', () => {
         menu?.classList.toggle('hidden');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isExpanded));
       });
     </script>
   </body>
@@ -99,7 +132,8 @@ const { title, description = "Master the art of prompting AI models" } = Astro.p
 
 <style is:global>
   :root {
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
   
@@ -107,23 +141,43 @@ const { title, description = "Master the art of prompting AI models" } = Astro.p
     font-family: var(--font-sans);
   }
   
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+
   code, pre {
     font-family: var(--font-mono);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #f5f5f5 0%, #d4d4d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: var(--font-serif);
+    font-style: italic;
   }
 
   .card-gradient {
-    background: linear-gradient(145deg, rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
-    border: 1px solid rgba(80, 80, 80, 0.3);
+    background: linear-gradient(145deg, rgba(35, 35, 35, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+    border: 1px solid rgba(80, 80, 80, 0.25);
   }
 
   ::selection {
-    background: rgba(251, 191, 36, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: rgb(28 25 23);
+    color: rgb(231 229 228);
+    transition: transform 0.2s ease;
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
   }
 </style>

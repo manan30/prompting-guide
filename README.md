@@ -1,43 +1,95 @@
-# Astro Starter Kit: Minimal
+# Prompt Mastery
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Prompt Mastery is a static educational website for learning practical AI prompting.
+It combines structured lessons with an interactive playground and a personal prompt notes tool.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- Astro 5
+- React 19 (interactive components)
+- Tailwind CSS 4
+- TypeScript (strict)
 
-Inside of your Astro project, you'll see the following folders and files:
+## What the site includes
+
+- `/` - landing page and overview
+- `/learn` - techniques, model guides, and use cases
+- `/playground` - interactive prompt builder with simulated AI response output
+- `/exercises` - practice exercises by difficulty level
+- `/my-prompts` - local prompt notes library saved in browser storage
+- `/sitemap.xml` - generated sitemap endpoint
+- `/robots.txt` - robots configuration
+
+## Project structure
 
 ```text
-/
+.
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/
+│   │   ├── PromptBuilder.tsx
+│   │   ├── PromptLibrary.tsx
+│   │   ├── TechniqueNav.astro
+│   │   └── TechniqueSidebar.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   ├── learn/
+│   │   ├── exercises.astro
+│   │   ├── index.astro
+│   │   ├── my-prompts.astro
+│   │   ├── playground.astro
+│   │   ├── robots.txt.ts
+│   │   └── sitemap.xml.ts
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+└── wrangler.toml
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Local development
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Install dependencies:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+npm install
+```
 
-## 🧞 Commands
+2. Start the dev server:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm run dev
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3. Open the app at `http://localhost:4321`.
 
-## 👀 Want to learn more?
+## Available scripts
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `npm run dev` - start local dev server
+- `npm run build` - production build into `dist/`
+- `npm run preview` - preview production build locally
+- `npm run astro` - run Astro CLI commands
+
+## Build and deploy
+
+1. Run a production build:
+
+```bash
+npm run build
+```
+
+2. Preview the static output:
+
+```bash
+npm run preview
+```
+
+3. Deploy `dist/` to your static hosting platform or Cloudflare Pages.
+
+## Notes for contributors
+
+- Keep content pages in `.astro` files.
+- Keep interactive UI in React components under `src/components`.
+- Favor consistent `stone`-based theme classes and shared layout styles.
+- Browser-persisted prompt notes are intentionally local-only (`localStorage`).

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Technique {
   id: string;
@@ -6,6 +6,42 @@ interface Technique {
   description: string;
   example: string;
 }
+
+interface SavedPrompt {
+  id: string;
+  text: string;
+  category: string;
+  notes: string;
+  createdAt: number;
+}
+
+const isSavedPrompt = (value: unknown): value is SavedPrompt => {
+  if (!value || typeof value !== 'object') return false;
+
+  const item = value as Record<string, unknown>;
+  return (
+    typeof item.id === 'string' &&
+    typeof item.text === 'string' &&
+    typeof item.category === 'string' &&
+    typeof item.notes === 'string' &&
+    typeof item.createdAt === 'number'
+  );
+};
+
+const readPromptLibrary = (): SavedPrompt[] => {
+  try {
+    const raw = localStorage.getItem('myPrompts');
+    if (!raw) return [];
+
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed.filter(isSavedPrompt);
+  } catch (error) {
+    console.error('Failed to read saved prompts:', error);
+    return [];
+  }
+};
 
 const techniques: Technique[] = [
   {
@@ -49,6 +85,19 @@ export default function PromptBuilder() {
   const [prompt, setPrompt] = useState(techniques[0].example);
   const [output, setOutput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+
+  useEffect(() => {
+    if (!statusMessage) return;
+
+    const timeout = window.setTimeout(() => {
+      setStatusMessage('');
+    }, 2400);
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [statusMessage]);
 
   const handleTechniqueChange = (tech: Technique) => {
     setSelectedTechnique(tech);
@@ -59,8 +108,7 @@ export default function PromptBuilder() {
   const simulateResponse = () => {
     setIsLoading(true);
     setOutput('');
-    
-    // Simulate AI response delay
+
     setTimeout(() => {
       const responses: Record<string, string> = {
         zeroshot: `• Key point from the article
@@ -88,7 +136,7 @@ Suggestions:
   </bullet_points>
 </summary>`
       };
-      
+
       setOutput(responses[selectedTechnique.id] || 'Response would appear here...');
       setIsLoading(false);
     }, 1500);
@@ -96,107 +144,131 @@ Suggestions:
 
   return (
     <div className="grid lg:grid-cols-2 gap-8">
-      {/* Left: Input */}
-      <div className="space-y-6">
+      <div className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-2">
-            Select Technique
-          </label>
+          <p className="block text-sm text-stone-500 mb-3">
+            Technique
+          </p>
           <div className="flex flex-wrap gap-2">
             {techniques.map((tech) => (
               <button
                 key={tech.id}
+                type="button"
                 onClick={() => handleTechniqueChange(tech)}
-                className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                className={`px-3 py-2 rounded text-sm transition-colors ${
                   selectedTechnique.id === tech.id
-                    ? 'bg-stone-700 text-stone-100'
-                    : 'bg-stone-800/50 text-stone-400 hover:text-stone-200'
+                    ? 'bg-stone-200 text-stone-900'
+                    : 'bg-stone-900 text-stone-500 hover:text-stone-300'
                 }`}
               >
                 {tech.name}
               </button>
             ))}
           </div>
-          <p className="text-slate-500 text-sm mt-2">
+          <p className="text-stone-600 text-sm mt-3">
             {selectedTechnique.description}
           </p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="prompt-input" className="block text-sm text-stone-500 mb-2">
             Your Prompt
           </label>
           <textarea
+            id="prompt-input"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             rows={8}
-            className="w-full bg-stone-900/50 border border-stone-700 rounded-lg p-3 text-stone-200 font-mono text-sm focus:outline-none focus:border-stone-600"
+            className="w-full bg-stone-950 border border-stone-800 rounded-lg p-4 text-stone-300 font-mono text-sm focus:outline-none focus:border-stone-700"
             placeholder="Enter your prompt here..."
           />
         </div>
 
         <button
+          type="button"
           onClick={simulateResponse}
           disabled={isLoading || !prompt.trim()}
-          className="w-full py-3 rounded-lg bg-stone-100 text-stone-900 font-medium text-sm hover:bg-stone-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-3 rounded-full bg-stone-100 text-stone-900 text-base hover:bg-stone-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
-              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
               </svg>
               Generating...
             </>
           ) : (
-            <>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Generate Response
-            </>
+            'Generate Response'
           )}
         </button>
 
         <div className="flex gap-3">
           <button
-            onClick={() => {
-              navigator.clipboard.writeText(prompt);
+            type="button"
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(prompt);
+                setStatusMessage('Prompt copied to clipboard.');
+              } catch (error) {
+                console.error('Failed to copy prompt:', error);
+                setStatusMessage('Could not copy prompt.');
+              }
             }}
-            className="flex-1 py-2.5 rounded-lg bg-stone-800 border border-stone-700 text-stone-400 hover:text-stone-200 hover:border-stone-600 transition-colors flex items-center justify-center gap-2 text-xs"
+            className="flex-1 py-2.5 rounded-lg border border-stone-800 text-stone-500 hover:text-stone-300 hover:border-stone-700 transition-colors flex items-center justify-center gap-2 text-sm"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
             </svg>
             Copy
           </button>
           <button
+            type="button"
             onClick={() => {
-              localStorage.setItem('savedPrompt', prompt);
-              alert('Prompt saved! Go to My Notes to see it.');
+              if (!prompt.trim()) {
+                setStatusMessage('Write a prompt before saving.');
+                return;
+              }
+
+              const existingPrompts = readPromptLibrary();
+
+              const promptToSave: SavedPrompt = {
+                id: Date.now().toString(),
+                text: prompt.trim(),
+                category: selectedTechnique.name,
+                notes: `Saved from playground using ${selectedTechnique.name}`,
+                createdAt: Date.now()
+              };
+
+              localStorage.setItem('myPrompts', JSON.stringify([promptToSave, ...existingPrompts]));
+              localStorage.removeItem('savedPrompt');
+              setStatusMessage('Prompt saved to My Notes.');
             }}
-            className="flex-1 py-2.5 rounded-lg bg-stone-800 border border-stone-700 text-stone-400 hover:text-stone-200 hover:border-stone-600 transition-colors flex items-center justify-center gap-2 text-xs"
+            className="flex-1 py-2.5 rounded-lg border border-stone-800 text-stone-500 hover:text-stone-300 hover:border-stone-700 transition-colors flex items-center justify-center gap-2 text-sm"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
             </svg>
             Save
           </button>
         </div>
+
+        <p aria-live="polite" className="min-h-5 text-sm text-stone-500">
+          {statusMessage}
+        </p>
       </div>
 
-      {/* Right: Output */}
       <div>
-        <label className="block text-sm font-medium text-stone-300 mb-2">
+        <p className="block text-sm text-stone-500 mb-2">
           AI Response
-        </label>
-        <div className="bg-stone-900/30 border border-stone-700 rounded-lg min-h-[300px] p-4">
+        </p>
+        <div className="bg-stone-950 border border-stone-800 rounded-lg min-h-[320px] p-5">
           {output ? (
-            <div className="text-stone-200 whitespace-pre-wrap text-sm">{output}</div>
+            <div className="text-stone-300 whitespace-pre-wrap text-base leading-relaxed">{output}</div>
           ) : (
-            <div className="h-full flex items-center justify-center text-stone-500">
+            <div className="h-full flex items-center justify-center text-stone-600">
               <div className="text-center">
-                <svg className="w-10 h-10 mx-auto mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 mx-auto mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
                 <p className="text-sm">Response will appear here</p>

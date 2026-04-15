@@ -4,73 +4,70 @@ import PromptBuilder from '../components/PromptBuilder';
 ---
 
 <Layout title="Try It Out">
-  <div class="py-12 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="gradient-text">Try It Out</span>
+  <div class="py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-serif text-stone-100 mb-4">
+          Try It Out
         </h1>
-        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
-          Experiment with different prompting techniques and see how they affect AI responses
+        <p class="text-lg text-stone-500 max-w-md mx-auto">
+          Experiment with different prompting techniques.
         </p>
       </div>
 
-      <!-- Interactive Prompt Builder -->
       <PromptBuilder client:load />
 
-      <!-- Tips Section -->
       <div class="mt-16">
-        <h2 class="text-xl font-semibold mb-6 text-stone-200">Quick tips</h2>
-        <div class="grid md:grid-cols-3 gap-4">
-          <div class="card-gradient rounded-xl p-5">
-            <h3 class="font-medium mb-2 text-stone-200">Start simple</h3>
-            <p class="text-stone-400 text-sm">Begin with a basic prompt, then add complexity incrementally.</p>
+        <h2 class="text-xl font-serif text-stone-300 mb-5">Quick tips</h2>
+        <div class="grid md:grid-cols-3 gap-px bg-stone-800/50">
+          <div class="bg-stone-950 p-5">
+            <h3 class="font-serif text-lg text-stone-200 mb-2">Start simple</h3>
+            <p class="text-base text-stone-600">Begin with a basic prompt, then add complexity incrementally.</p>
           </div>
-          <div class="card-gradient rounded-xl p-5">
-            <h3 class="font-medium mb-2 text-stone-200">Compare techniques</h3>
-            <p class="text-stone-400 text-sm">Try the same task with different approaches to see what works.</p>
+          <div class="bg-stone-950 p-5">
+            <h3 class="font-serif text-lg text-stone-200 mb-2">Compare techniques</h3>
+            <p class="text-base text-stone-600">Try the same task with different approaches to see what works.</p>
           </div>
-          <div class="card-gradient rounded-xl p-5">
-            <h3 class="font-medium mb-2 text-stone-200">Save good prompts</h3>
-            <p class="text-stone-400 text-sm">When you find one that works, save it for future use.</p>
+          <div class="bg-stone-950 p-5">
+            <h3 class="font-serif text-lg text-stone-200 mb-2">Save good prompts</h3>
+            <p class="text-base text-stone-600">When you find one that works, save it for future use.</p>
           </div>
         </div>
       </div>
 
-      <!-- Technique Reference -->
       <div class="mt-12">
-        <h2 class="text-xl font-semibold mb-6 text-stone-200">Technique quick reference</h2>
-        <div class="card-gradient rounded-xl overflow-hidden">
+        <h2 class="text-xl font-serif text-stone-300 mb-5">Technique reference</h2>
+        <div class="bg-stone-900/30 border border-stone-800/50 rounded-lg overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full">
-              <thead class="bg-slate-800/50">
+            <table class="w-full min-w-[680px] text-base">
+              <caption class="sr-only">Technique reference table with use cases and examples</caption>
+              <thead class="bg-stone-900/50">
                 <tr>
-                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">Technique</th>
-                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">When to Use</th>
-                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">Example Trigger</th>
+                  <th scope="col" class="px-5 py-3 text-left text-stone-400 font-normal">Technique</th>
+                  <th scope="col" class="px-5 py-3 text-left text-stone-400 font-normal">When to use</th>
+                  <th scope="col" class="px-5 py-3 text-left text-stone-400 font-normal">Example</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-800">
+              <tbody class="divide-y divide-stone-800/50">
                 <tr>
-                  <td class="px-6 py-4 text-slate-300">Zero-Shot</td>
-                  <td class="px-6 py-4 text-slate-400 text-sm">Simple, well-known tasks</td>
-                  <td class="px-6 py-4 font-mono text-sm text-violet-400">"Summarize this..."</td>
+                  <td class="px-5 py-3 text-stone-300">Zero-Shot</td>
+                  <td class="px-5 py-3 text-stone-500">Simple, well-known tasks</td>
+                  <td class="px-5 py-3 font-mono text-xs text-stone-500">"Summarize this..."</td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 text-slate-300">Few-Shot</td>
-                  <td class="px-6 py-4 text-slate-400 text-sm">Specific format needed</td>
-                  <td class="px-6 py-4 font-mono text-sm text-violet-400">"Example: X → Y\nNow do Z"</td>
+                  <td class="px-5 py-3 text-stone-300">Few-Shot</td>
+                  <td class="px-5 py-3 text-stone-500">Specific format needed</td>
+                  <td class="px-5 py-3 font-mono text-xs text-stone-500">"Example: X → Y"</td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 text-slate-300">Chain-of-Thought</td>
-                  <td class="px-6 py-4 text-slate-400 text-sm">Complex reasoning</td>
-                  <td class="px-6 py-4 font-mono text-sm text-violet-400">"Let's think step by step"</td>
+                  <td class="px-5 py-3 text-stone-300">Chain-of-Thought</td>
+                  <td class="px-5 py-3 text-stone-500">Complex reasoning</td>
+                  <td class="px-5 py-3 font-mono text-xs text-stone-500">"Think step by step"</td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 text-slate-300">Role-Based</td>
-                  <td class="px-6 py-4 text-slate-400 text-sm">Specific tone/expertise</td>
-                  <td class="px-6 py-4 font-mono text-sm text-violet-400">"You are an expert..."</td>
+                  <td class="px-5 py-3 text-stone-300">Role-Based</td>
+                  <td class="px-5 py-3 text-stone-500">Specific tone/expertise</td>
+                  <td class="px-5 py-3 font-mono text-xs text-stone-500">"You are an expert..."</td>
                 </tr>
               </tbody>
             </table>

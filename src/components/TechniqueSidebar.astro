@@ -4,24 +4,37 @@ interface Props {
 }
 
 const techniques = [
-  { slug: 'zeroshot', title: 'Zero-Shot', color: 'emerald' },
-  { slug: 'fewshot', title: 'Few-Shot', color: 'cyan' },
-  { slug: 'cot', title: 'Chain-of-Thought', color: 'violet' },
-  { slug: 'role', title: 'Role-Based', color: 'amber' },
-  { slug: 'xml-tags', title: 'XML Tags', color: 'blue' },
-  { slug: 'system-prompts', title: 'System Prompts', color: 'rose' },
-  { slug: 'chain-prompts', title: 'Prompt Chaining', color: 'teal' },
-  { slug: 'tot', title: 'Tree of Thoughts', color: 'purple' },
-  { slug: 'meta', title: 'Meta-Prompting', color: 'orange' },
-  { slug: 'reflection', title: 'Reflection', color: 'pink' },
+  { slug: 'zeroshot', title: 'Zero-Shot', tone: 'emerald' },
+  { slug: 'fewshot', title: 'Few-Shot', tone: 'cyan' },
+  { slug: 'cot', title: 'Chain-of-Thought', tone: 'violet' },
+  { slug: 'role', title: 'Role-Based', tone: 'amber' },
+  { slug: 'xml-tags', title: 'XML Tags', tone: 'blue' },
+  { slug: 'system-prompts', title: 'System Prompts', tone: 'rose' },
+  { slug: 'chain-prompts', title: 'Prompt Chaining', tone: 'teal' },
+  { slug: 'tot', title: 'Tree of Thoughts', tone: 'purple' },
+  { slug: 'meta', title: 'Meta-Prompting', tone: 'orange' },
+  { slug: 'reflection', title: 'Reflection', tone: 'pink' },
 ];
+
+const toneClasses: Record<string, string> = {
+  emerald: 'bg-emerald-500/10 text-emerald-400 border-l-2 border-emerald-500',
+  cyan: 'bg-cyan-500/10 text-cyan-400 border-l-2 border-cyan-500',
+  violet: 'bg-violet-500/10 text-violet-400 border-l-2 border-violet-500',
+  amber: 'bg-amber-500/10 text-amber-400 border-l-2 border-amber-500',
+  blue: 'bg-blue-500/10 text-blue-400 border-l-2 border-blue-500',
+  rose: 'bg-rose-500/10 text-rose-400 border-l-2 border-rose-500',
+  teal: 'bg-teal-500/10 text-teal-400 border-l-2 border-teal-500',
+  purple: 'bg-purple-500/10 text-purple-400 border-l-2 border-purple-500',
+  orange: 'bg-orange-500/10 text-orange-400 border-l-2 border-orange-500',
+  pink: 'bg-pink-500/10 text-pink-400 border-l-2 border-pink-500'
+};
 
 const { currentSlug } = Astro.props;
 ---
 
 <nav class="hidden lg:block w-64 shrink-0">
   <div class="sticky top-24">
-    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
+    <h3 class="text-sm font-semibold text-stone-400 uppercase tracking-wider mb-4">
       Techniques
     </h3>
     <ul class="space-y-1">
@@ -32,8 +45,8 @@ const { currentSlug } = Astro.props;
             class:list={[
               'block px-3 py-2 rounded-lg text-sm transition-all',
               currentSlug === tech.slug
-                ? `bg-${tech.color}-500/10 text-${tech.color}-400 border-l-2 border-${tech.color}-500`
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                ? toneClasses[tech.tone]
+                : 'text-stone-400 hover:text-stone-100 hover:bg-stone-800'
             ]}
           >
             {tech.title}
