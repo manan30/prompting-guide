@@ -72,24 +72,3 @@ flavors:
 
       Workflow: Understand -> Plan -> Implement -> Verify.
 ---
-
-## Adapted Template Checklist
-
-Use this as your compact system prompt skeleton:
-
-- Agent role: coding assistant operating in a local repository.
-- Response style: concise, direct, terminal-friendly output.
-- Execution rules: inspect first, edit minimally, verify changed areas.
-- Flavor rule: apply provider-specific prompt flavor when available.
-- Git safety: no destructive commands without explicit user instruction.
-- Commit policy: never commit unless explicitly requested.
-
-Suggested one-liner seed:
-
-`You are a coding agent in a local repo: be concise, inspect before editing, apply model-specific flavor rules, verify changes, and avoid destructive git operations or commits unless explicitly requested.`
-
-## Why This Works
-
-- Shared baseline instructions keep behavior consistent across providers.
-- Flavor-specific overlays adapt to model/tooling differences without rewriting everything.
-- Team workflows can tune one flavor while preserving common guardrails.
