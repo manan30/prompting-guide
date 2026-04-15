@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { trackEvent } from '../lib/posthog';
 
 interface Technique {
   id: string;
@@ -106,6 +107,11 @@ export default function PromptBuilder() {
   };
 
   const simulateResponse = () => {
+    trackEvent('playground_generate_clicked', {
+      technique: selectedTechnique.id,
+      promptLength: prompt.trim().length
+    });
+
     setIsLoading(true);
     setOutput('');
 
@@ -209,6 +215,10 @@ Suggestions:
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(prompt);
+                trackEvent('playground_prompt_copied', {
+                  technique: selectedTechnique.id,
+                  promptLength: prompt.trim().length
+                });
                 setStatusMessage('Prompt copied to clipboard.');
               } catch (error) {
                 console.error('Failed to copy prompt:', error);
@@ -242,6 +252,11 @@ Suggestions:
 
               localStorage.setItem('myPrompts', JSON.stringify([promptToSave, ...existingPrompts]));
               localStorage.removeItem('savedPrompt');
+              trackEvent('playground_prompt_saved', {
+                technique: selectedTechnique.id,
+                category: selectedTechnique.name,
+                promptLength: prompt.trim().length
+              });
               setStatusMessage('Prompt saved to My Notes.');
             }}
             className="flex-1 py-2.5 rounded-lg border border-stone-800 text-stone-500 hover:text-stone-300 hover:border-stone-700 transition-colors flex items-center justify-center gap-2 text-sm"

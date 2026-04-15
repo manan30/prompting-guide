@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { initPostHog } from '../lib/posthog';
 
 interface Props {
   title: string;
@@ -126,6 +127,10 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
         const isExpanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!isExpanded));
       });
+    </script>
+
+    <script>
+      initPostHog();
     </script>
   </body>
 </html>

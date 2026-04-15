@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '../lib/posthog';
 
 interface SavedPrompt {
   id: string;
@@ -156,19 +157,34 @@ export default function PromptLibrary() {
     };
     
     savePrompts([prompt, ...prompts]);
+    trackEvent('library_prompt_added', {
+      category: prompt.category,
+      promptLength: prompt.text.length,
+      hasNotes: Boolean(prompt.notes)
+    });
     setNewPrompt({ text: '', category: 'General', notes: '' });
     setShowAddModal(false);
     setStatusMessage('Prompt added to your notes.');
   };
 
   const deletePrompt = (id: string) => {
+    const target = prompts.find((prompt) => prompt.id === id);
     savePrompts(prompts.filter(p => p.id !== id));
+    if (target) {
+      trackEvent('library_prompt_deleted', {
+        category: target.category,
+        promptLength: target.text.length
+      });
+    }
     setStatusMessage('Prompt deleted.');
   };
 
   const copyPrompt = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      trackEvent('library_prompt_copied', {
+        promptLength: text.length
+      });
       setStatusMessage('Prompt copied to clipboard.');
     } catch (error) {
       console.error('Failed to copy prompt:', error);

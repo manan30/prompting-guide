@@ -71,6 +71,11 @@ bun run dev
 - `bun run preview` - preview production build locally
 - `bun run astro` - run Astro CLI commands
 
+## Environment variables
+
+- `PUBLIC_POSTHOG_KEY` - PostHog project token for client-side analytics
+- `PUBLIC_POSTHOG_HOST` - PostHog API host (for example `https://us.i.posthog.com`)
+
 ## Build and deploy
 
 1. Run a production build:
