@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { initPostHog } from '../lib/posthog';
 
 interface Props {
   title: string;
@@ -130,6 +129,7 @@ const absoluteImageUrl = new URL(image, siteUrl).toString();
     </script>
 
     <script>
+      import { initPostHog } from '../lib/posthog';
       initPostHog();
     </script>
   </body>
