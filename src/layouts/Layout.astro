@@ -15,9 +15,12 @@ const {
   noIndex = false
 } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL(Astro.url.origin);
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const absoluteImageUrl = new URL(image, siteUrl).toString();
+const productionSiteOrigin = 'https://prompting-guide.mananjoshi.me';
+const siteOrigin = import.meta.env.DEV
+  ? Astro.url.origin
+  : (Astro.site?.toString() ?? productionSiteOrigin);
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).toString();
+const absoluteImageUrl = new URL(image, siteOrigin).toString();
 const currentYear = new Date().getFullYear();
 ---
 
